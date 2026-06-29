@@ -97,6 +97,7 @@
 
       <form id="consultForm" class="mt-[16px] space-y-[14px] rounded-[18px] bg-white px-[16px] py-[18px] shadow-card ring-1 ring-slate-100">
         <input type="hidden" name="source" value="sinchung.html" />
+        <input type="hidden" id="landingPageInput" name="landingPage" value="" />
 
         <section>
           <h2 class="text-[18px] font-black text-ink">기본 정보</h2>
@@ -185,6 +186,28 @@
     const form = document.getElementById('consultForm');
     const button = document.getElementById('submitButton');
     const message = document.getElementById('formMessage');
+    const landingPageInput = document.getElementById('landingPageInput');
+
+    function detectLandingPage() {
+      const params = new URLSearchParams(window.location.search);
+      const fromParam = params.get('from');
+
+      if (fromParam) return fromParam;
+
+      if (document.referrer) {
+        try {
+          const referrerUrl = new URL(document.referrer);
+          const fileName = referrerUrl.pathname.split('/').pop() || 'index';
+          return fileName.replace('.html', '') || 'unknown';
+        } catch (error) {
+          return 'unknown';
+        }
+      }
+
+      return 'direct';
+    }
+
+    landingPageInput.value = detectLandingPage();
 
     function showMessage(text, type) {
       message.textContent = text;

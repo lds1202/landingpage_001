@@ -11,6 +11,7 @@ function doPost(e) {
     new Date(),
     params.submittedAt || '',
     params.source || '',
+    params.landingPage || '',
     params.pageUrl || '',
     params.parentPhone || '',
     params.grade || '',
@@ -39,12 +40,11 @@ function getOrCreateSheet_() {
 }
 
 function ensureHeader_(sheet) {
-  if (sheet.getLastRow() > 0) return;
-
-  sheet.appendRow([
+  const headers = [
     '접수일시',
     '브라우저 제출시각',
     '유입페이지',
+    '랜딩페이지',
     '페이지URL',
     '학부모 연락처',
     '학생 학년',
@@ -54,8 +54,14 @@ function ensureHeader_(sheet) {
     '희망 수업 방식',
     '고민 내용',
     '개인정보 동의'
-  ]);
+  ];
+
+  if (sheet.getLastRow() === 0) {
+    sheet.appendRow(headers);
+  } else {
+    sheet.getRange(1, 1, 1, headers.length).setValues([headers]);
+  }
 
   sheet.setFrozenRows(1);
-  sheet.getRange(1, 1, 1, 12).setFontWeight('bold').setBackground('#EFF4FF');
+  sheet.getRange(1, 1, 1, headers.length).setFontWeight('bold').setBackground('#EFF4FF');
 }

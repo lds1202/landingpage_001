@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>둔산 에듀케어 과외</title>
+  <meta name="description" content="탄방중, 충남고, 문정초 학생을 위한 둔산 에듀케어 과외 1:1 맞춤 수업 랜딩페이지" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      background: #fff;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      padding-bottom: 52px;
+    }
+
+    .page {
+      position: relative;
+      width: min(100%, 430px);
+      min-height: calc(100vh - 52px);
+      background: #fff;
+      overflow: hidden;
+    }
+
+    @media (min-width: 720px) {
+      .page {
+        margin: 28px 0;
+        border-radius: 20px;
+        box-shadow: 0 24px 70px rgba(9, 17, 25, 0.18);
+      }
+    }
+
+    .design,
+    .floating-design {
+      display: block;
+      width: 100%;
+      height: auto;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .hotspot {
+      position: absolute;
+      display: block;
+      overflow: hidden;
+      border-radius: 12px;
+      color: transparent;
+      text-indent: -9999px;
+      -webkit-tap-highlight-color: rgba(68, 190, 170, 0.18);
+    }
+
+    .hotspot:focus-visible,
+    .floating-hotspot:focus-visible {
+      outline: 3px solid #35b8a4;
+      outline-offset: 2px;
+    }
+
+    .floating-cta {
+      position: fixed;
+      left: 50%;
+      bottom: 0;
+      z-index: 30;
+      width: min(100%, 430px);
+      transform: translateX(-50%);
+      background: #fff;
+      box-shadow: 0 -8px 24px rgba(9, 17, 25, 0.16);
+    }
+
+    .floating-hotspot {
+      position: absolute;
+      display: block;
+      overflow: hidden;
+      border-radius: 8px;
+      color: transparent;
+      text-indent: -9999px;
+      -webkit-tap-highlight-color: rgba(68, 190, 170, 0.18);
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+  <main class="page" aria-label="둔산 에듀케어 과외 랜딩페이지">
+    <img class="design" src="./c-main-hd.png" alt="둔산 에듀케어 과외. 대전 둔산동 전문 1:1 맞춤 과외. 탄방중, 충남고, 문정초 학생을 위한 1:1 맞춤 과외." />
+
+    <section class="sr-only">
+      <h1>탄방중, 충남고, 문정초 학생을 위한 1:1 맞춤 과외</h1>
+      <p>학교별 학습 특성과 학생 수준을 분석해 내신, 기초, 학습 습관까지 꼼꼼하게 관리합니다.</p>
+      <h2>집중 관리 학교</h2>
+      <p>탄방중학교, 충남고등학교, 문정초등학교 학생을 위한 맞춤 관리 수업입니다.</p>
+      <h2>우리 과외의 특징</h2>
+      <p>학교별 맞춤 분석, 1:1 밀착 관리, 성적 향상 관리, 학습 습관 코칭을 제공합니다.</p>
+      <h2>상담 진행 절차</h2>
+      <p>상담 신청, 학습 상담, 맞춤 계획 수립, 수업 시작 및 관리 순서로 진행합니다.</p>
+    </section>
+
+    <a class="hotspot" href="./sinchung.html?from=c" aria-label="무료 상담 신청"
+      style="left: 4.57%; top: 27.46%; width: 28.80%; height: 3.58%;">무료 상담 신청</a>
+    <a class="hotspot" href="./sinchung.html?from=c" aria-label="카카오톡 상담"
+      style="left: 34.64%; top: 27.46%; width: 27.84%; height: 3.58%;">카카오톡 상담</a>
+    <a class="hotspot" href="./sinchung.html?from=c" aria-label="전화 상담"
+      style="left: 64.08%; top: 27.46%; width: 25.40%; height: 3.58%;">전화 상담</a>
+  </main>
+
+  <nav class="floating-cta" aria-label="고정 상담 버튼">
+    <img class="floating-design" src="./c-floating-buttons.png" alt="무료 상담 신청, 카카오톡 상담, 전화 상담" />
+    <a class="floating-hotspot" href="./sinchung.html?from=c" aria-label="하단 고정 무료 상담 신청"
+      style="left: 38.79%; top: 15.45%; width: 18.17%; height: 59.09%;">무료 상담 신청</a>
+    <a class="floating-hotspot" href="./sinchung.html?from=c" aria-label="하단 고정 카카오톡 상담"
+      style="left: 58.13%; top: 15.45%; width: 18.17%; height: 59.09%;">카카오톡 상담</a>
+    <a class="floating-hotspot" href="./sinchung.html?from=c" aria-label="하단 고정 전화 상담"
+      style="left: 78.11%; top: 15.45%; width: 17.43%; height: 59.09%;">전화 상담</a>
+  </nav>
+</body>
+</html>

@@ -1,11 +1,11 @@
-const SHEET_ID = '1QRf2_lzRankZ19PLWVlcAYWdhThAYzqJBM1lXFmPoiI';
-const SHEET_NAME = '상담신청';
+var SHEET_ID = '1QRf2_lzRankZ19PLWVlcAYWdhThAYzqJBM1lXFmPoiI';
+var SHEET_NAME = '상담신청';
 
 function doPost(e) {
-  const sheet = getOrCreateSheet_();
-  const params = e.parameter || {};
-  const parentPhone = formatPhoneNumber_(params.parentPhone || '');
-  const grade = resolveGrade_(params.grade, params.gradeChoice, params.gradeOther);
+  var sheet = getOrCreateSheet_();
+  var params = e.parameter || {};
+  var parentPhone = formatPhoneNumber_(params.parentPhone || '');
+  var grade = resolveGrade_(params.grade, params.gradeChoice, params.gradeOther);
 
   ensureHeader_(sheet);
 
@@ -25,13 +25,11 @@ function doPost(e) {
     params.privacyAgree || ''
   ]);
 
-  return ContentService
-    .createTextOutput(JSON.stringify({ ok: true }))
-    .setMimeType(ContentService.MimeType.JSON);
+  return ContentService.createTextOutput(JSON.stringify({ ok: true })).setMimeType(ContentService.MimeType.JSON);
 }
 
 function formatPhoneNumber_(value) {
-  const numbers = String(value || '').replace(/\D/g, '').slice(0, 11);
+  var numbers = String(value || '').replace(/\D/g, '').slice(0, 11);
 
   if (numbers.length <= 3) return numbers;
   if (numbers.length <= 7) return numbers.replace(/(\d{3})(\d+)/, '$1-$2');
@@ -40,28 +38,26 @@ function formatPhoneNumber_(value) {
 }
 
 function resolveGrade_(grade, gradeChoice, gradeOther) {
-  const selectedGrade = String(grade || '').trim();
+  var selectedGrade = String(grade || '').trim();
   if (selectedGrade) return selectedGrade;
 
-  const selectedChoice = String(gradeChoice || '').trim();
+  var selectedChoice = String(gradeChoice || '').trim();
   if (selectedChoice === '기타') return String(gradeOther || '').trim();
 
   return selectedChoice;
 }
 
 function doGet() {
-  return ContentService
-    .createTextOutput('Dunsan landing page form endpoint is running.')
-    .setMimeType(ContentService.MimeType.TEXT);
+  return ContentService.createTextOutput('Dunsan landing page form endpoint is running.').setMimeType(ContentService.MimeType.TEXT);
 }
 
 function getOrCreateSheet_() {
-  const spreadsheet = SpreadsheetApp.openById(SHEET_ID);
+  var spreadsheet = SpreadsheetApp.openById(SHEET_ID);
   return spreadsheet.getSheetByName(SHEET_NAME) || spreadsheet.insertSheet(SHEET_NAME);
 }
 
 function ensureHeader_(sheet) {
-  const headers = [
+  var headers = [
     '접수일시',
     '브라우저 제출시각',
     '유입페이지',

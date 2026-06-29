@@ -21,6 +21,7 @@
     body {
       display: flex;
       justify-content: center;
+      padding-bottom: 62px;
     }
 
     .page {
@@ -38,7 +39,8 @@
       }
     }
 
-    .design {
+    .design,
+    .floating-design {
       display: block;
       width: 100%;
       height: auto;
@@ -61,6 +63,33 @@
       outline-offset: 2px;
     }
 
+    .floating-cta {
+      position: fixed;
+      left: 50%;
+      bottom: 0;
+      z-index: 30;
+      width: min(100%, 420px);
+      transform: translateX(-50%);
+      background: #fff;
+      box-shadow: 0 -8px 24px rgba(5, 7, 13, 0.16);
+    }
+
+    .floating-hotspot {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      display: block;
+      overflow: hidden;
+      color: transparent;
+      text-indent: -9999px;
+      -webkit-tap-highlight-color: rgba(6, 70, 184, 0.16);
+    }
+
+    .floating-hotspot:focus-visible {
+      outline: 3px solid #0646b8;
+      outline-offset: -3px;
+    }
+
     .sr-only {
       position: absolute;
       width: 1px;
@@ -76,7 +105,7 @@
 </head>
 <body>
   <main class="page" aria-label="둔산 전략과외 랜딩페이지">
-    <img class="design" src="./b-reference-hd.png" alt="둔산 전략과외. 탄방중, 충남고, 문정초 성적 향상을 위한 전략형 1:1 과외. 무료 진단 상담, 상담 신청, 카카오톡 문의." />
+    <img class="design" src="./b-main-hd.png" alt="둔산 전략과외. 탄방중, 충남고, 문정초 성적 향상을 위한 전략형 1:1 과외. 무료 진단 상담, 상담 신청, 카카오톡 문의." />
 
     <section class="sr-only">
       <h1>탄방중 · 충남고 · 문정초 성적 향상을 위한 전략형 1:1 과외</h1>
@@ -92,18 +121,21 @@
     </section>
 
     <a class="hotspot" href="./sinchung.html?from=b" aria-label="무료 진단 상담 신청"
-      style="left: 5.10%; top: 30.84%; width: 28.97%; height: 7.46%;">무료 진단 상담</a>
+      style="left: 5.10%; top: 32.92%; width: 28.97%; height: 8.08%;">무료 진단 상담</a>
     <a class="hotspot" href="./sinchung.html?from=b" aria-label="상담 신청"
-      style="left: 36.15%; top: 30.84%; width: 28.27%; height: 7.46%;">상담 신청</a>
+      style="left: 36.15%; top: 32.92%; width: 28.27%; height: 8.08%;">상담 신청</a>
     <a class="hotspot" href="./sinchung.html?from=b" aria-label="카카오톡 문의"
-      style="left: 66.16%; top: 30.84%; width: 28.74%; height: 7.46%;">카카오톡 문의</a>
-
-    <a class="hotspot" href="./sinchung.html?from=b" aria-label="하단 무료 진단 상담 신청"
-      style="left: 3.82%; top: 93.75%; width: 31.29%; height: 6.25%;">무료 진단 상담</a>
-    <a class="hotspot" href="./sinchung.html?from=b" aria-label="하단 상담 신청"
-      style="left: 36.85%; top: 93.75%; width: 29.78%; height: 6.25%;">상담 신청</a>
-    <a class="hotspot" href="./sinchung.html?from=b" aria-label="하단 카카오톡 문의"
-      style="left: 68.13%; top: 93.75%; width: 28.27%; height: 6.25%;">카카오톡 문의</a>
+      style="left: 66.16%; top: 32.92%; width: 28.74%; height: 8.08%;">카카오톡 문의</a>
   </main>
+
+  <nav class="floating-cta" aria-label="고정 상담 버튼">
+    <img class="floating-design" src="./b-floating-buttons.png" alt="무료 진단 상담, 상담 신청, 카카오톡 문의" />
+    <a class="floating-hotspot" href="./sinchung.html?from=b" aria-label="하단 고정 무료 진단 상담 신청"
+      style="left: 0; width: 34.19%;">무료 진단 상담</a>
+    <a class="floating-hotspot" href="./sinchung.html?from=b" aria-label="하단 고정 상담 신청"
+      style="left: 34.19%; width: 33.68%;">상담 신청</a>
+    <a class="floating-hotspot" href="./sinchung.html?from=b" aria-label="하단 고정 카카오톡 문의"
+      style="left: 67.87%; width: 32.13%;">카카오톡 문의</a>
+  </nav>
 </body>
 </html>

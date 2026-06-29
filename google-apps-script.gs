@@ -9,23 +9,23 @@ function doPost(e) {
 
   ensureHeader_(sheet);
 
-  sheet.appendRow([
-    new Date(),
-    params.submittedAt || '',
-    params.source || '',
-    params.landingPage || '',
-    params.pageUrl || '',
-    parentPhone,
-    grade,
-    params.school || '',
-    params.mathLevel || '',
-    params.score || '',
-    params.classType || '',
-    params.concern || '',
-    params.privacyAgree || ''
-  ]);
+  var row = new Array();
+  row.push(new Date());
+  row.push(params.submittedAt || '');
+  row.push(params.source || '');
+  row.push(params.landingPage || '');
+  row.push(params.pageUrl || '');
+  row.push(parentPhone);
+  row.push(grade);
+  row.push(params.school || '');
+  row.push(params.mathLevel || '');
+  row.push(params.score || '');
+  row.push(params.classType || '');
+  row.push(params.concern || '');
+  row.push(params.privacyAgree || '');
+  sheet.appendRow(row);
 
-  return ContentService.createTextOutput(JSON.stringify({ ok: true })).setMimeType(ContentService.MimeType.JSON);
+  return ContentService.createTextOutput('{"ok":true}').setMimeType(ContentService.MimeType.JSON);
 }
 
 function formatPhoneNumber_(value) {
@@ -57,26 +57,25 @@ function getOrCreateSheet_() {
 }
 
 function ensureHeader_(sheet) {
-  var headers = [
-    '접수일시',
-    '브라우저 제출시각',
-    '유입페이지',
-    '랜딩페이지',
-    '페이지URL',
-    '학부모 연락처',
-    '학생 학년',
-    '학교명',
-    '현재 수학 상태',
-    '현재 점수/등급',
-    '희망 수업 방식',
-    '고민 내용',
-    '개인정보 동의'
-  ];
+  var headers = new Array();
+  headers.push('접수일시');
+  headers.push('브라우저 제출시각');
+  headers.push('유입페이지');
+  headers.push('랜딩페이지');
+  headers.push('페이지URL');
+  headers.push('학부모 연락처');
+  headers.push('학생 학년');
+  headers.push('학교명');
+  headers.push('현재 수학 상태');
+  headers.push('현재 점수/등급');
+  headers.push('희망 수업 방식');
+  headers.push('고민 내용');
+  headers.push('개인정보 동의');
 
   if (sheet.getLastRow() === 0) {
     sheet.appendRow(headers);
   } else {
-    sheet.getRange(1, 1, 1, headers.length).setValues([headers]);
+    sheet.getRange(1, 1, 1, headers.length).setValues(new Array(headers));
   }
 
   sheet.setFrozenRows(1);

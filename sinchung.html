@@ -105,7 +105,7 @@
           <div class="mt-3 space-y-3">
             <label class="block">
               <span class="text-[14px] font-bold text-ink">학부모님 연락처 <b class="text-orange">*</b></span>
-              <input class="field mt-2 w-full rounded-[10px] border border-slate-200 px-4 py-3 text-[15px]" type="tel" name="parentPhone" placeholder="010-0000-0000" required />
+              <input id="parentPhoneInput" class="field mt-2 w-full rounded-[10px] border border-slate-200 px-4 py-3 text-[15px]" type="tel" name="parentPhone" placeholder="010-0000-0000" inputmode="numeric" autocomplete="tel" maxlength="13" required />
             </label>
             <div>
               <span class="text-[14px] font-bold text-ink">학생 학년 <b class="text-orange">*</b></span>
@@ -244,6 +244,7 @@
     const button = document.getElementById('submitButton');
     const message = document.getElementById('formMessage');
     const landingPageInput = document.getElementById('landingPageInput');
+    const parentPhoneInput = document.getElementById('parentPhoneInput');
     const gradeInput = document.getElementById('gradeInput');
     const gradeOtherRadio = document.getElementById('gradeOtherRadio');
     const gradeOtherInput = document.getElementById('gradeOtherInput');
@@ -268,6 +269,22 @@
     }
 
     landingPageInput.value = detectLandingPage();
+
+    function formatPhoneNumber(value) {
+      const numbers = value.replace(/\D/g, '').slice(0, 11);
+
+      if (numbers.length <= 3) return numbers;
+      if (numbers.length <= 7) return numbers.replace(/(\d{3})(\d+)/, '$1-$2');
+
+      return numbers.replace(/(\d{3})(\d{4})(\d+)/, '$1-$2-$3');
+    }
+
+    function syncPhoneFormat() {
+      parentPhoneInput.value = formatPhoneNumber(parentPhoneInput.value);
+    }
+
+    parentPhoneInput.addEventListener('input', syncPhoneFormat);
+    parentPhoneInput.addEventListener('blur', syncPhoneFormat);
 
     document.querySelectorAll('input[name="gradeChoice"]').forEach(function (radio) {
       radio.addEventListener('change', function () {
@@ -297,6 +314,8 @@
         showMessage('관리자 설정이 필요합니다. Google Apps Script 웹앱 URL을 sinchung.html에 입력해 주세요.', 'error');
         return;
       }
+
+      syncPhoneFormat();
 
       const selectedGrade = document.querySelector('input[name="gradeChoice"]:checked');
       gradeInput.value = selectedGrade && selectedGrade.value === '기타'

@@ -4,6 +4,8 @@ const SHEET_NAME = '상담신청';
 function doPost(e) {
   const sheet = getOrCreateSheet_();
   const params = e.parameter || {};
+  const parentPhone = formatPhoneNumber_(params.parentPhone || '');
+  const grade = resolveGrade_(params.grade, params.gradeChoice, params.gradeOther);
 
   ensureHeader_(sheet);
 
@@ -13,8 +15,8 @@ function doPost(e) {
     params.source || '',
     params.landingPage || '',
     params.pageUrl || '',
-    params.parentPhone || '',
-    params.grade || '',
+    parentPhone,
+    grade,
     params.school || '',
     params.mathLevel || '',
     params.score || '',
@@ -26,6 +28,25 @@ function doPost(e) {
   return ContentService
     .createTextOutput(JSON.stringify({ ok: true }))
     .setMimeType(ContentService.MimeType.JSON);
+}
+
+function formatPhoneNumber_(value) {
+  const numbers = String(value || '').replace(/\D/g, '').slice(0, 11);
+
+  if (numbers.length <= 3) return numbers;
+  if (numbers.length <= 7) return numbers.replace(/(\d{3})(\d+)/, '$1-$2');
+
+  return numbers.replace(/(\d{3})(\d{4})(\d+)/, '$1-$2-$3');
+}
+
+function resolveGrade_(grade, gradeChoice, gradeOther) {
+  const selectedGrade = String(grade || '').trim();
+  if (selectedGrade) return selectedGrade;
+
+  const selectedChoice = String(gradeChoice || '').trim();
+  if (selectedChoice === '기타') return String(gradeOther || '').trim();
+
+  return selectedChoice;
 }
 
 function doGet() {

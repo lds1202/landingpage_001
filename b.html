@@ -5,250 +5,105 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>둔산 전략과외</title>
   <meta name="description" content="탄방중·충남고·문정초 성적 향상을 위한 대전 둔산동 전략형 1:1 과외 랜딩페이지" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; }
-    html, body { margin: 0; min-height: 100%; background: #e8edf4; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      background: #e8edf4;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
     body {
       display: flex;
       justify-content: center;
-      font-family: "Pretendard Variable", Pretendard, "Noto Sans KR", system-ui, sans-serif;
-      color: #05070d;
-      word-break: keep-all;
     }
-    a { color: inherit; text-decoration: none; }
+
     .page {
       position: relative;
       width: min(100%, 420px);
-      min-height: 1040px;
+      background: #fff;
       overflow: hidden;
-      background:
-        radial-gradient(circle at 18% 0%, rgba(0, 67, 180, .06), transparent 26%),
-        linear-gradient(180deg, #fff 0%, #fffdfa 58%, #fff 100%);
     }
+
     @media (min-width: 700px) {
       .page {
         margin: 28px 0;
         border-radius: 18px;
-        box-shadow: 0 24px 70px rgba(5, 7, 13, .22);
+        box-shadow: 0 24px 70px rgba(5, 7, 13, 0.22);
       }
     }
-    .logo {
-      position: absolute; left: 13px; top: 9px;
-      font-size: 18px; font-weight: 1000; letter-spacing: -1.6px;
+
+    .design {
+      display: block;
+      width: 100%;
+      height: auto;
+      user-select: none;
+      -webkit-user-drag: none;
     }
-    .menu {
-      position: absolute; right: 14px; top: 10px; width: 22px; height: 20px;
-      display: grid; gap: 4px;
+
+    .hotspot {
+      position: absolute;
+      display: block;
+      overflow: hidden;
+      border-radius: 10px;
+      color: transparent;
+      text-indent: -9999px;
+      -webkit-tap-highlight-color: rgba(6, 70, 184, 0.16);
     }
-    .menu span { display: block; height: 3px; background: #05070d; }
-    .blue { color: #0646b8; }
-    .red { color: #eb001b; }
-    .green { color: #128b22; }
-    .pen { font-family: "Nanum Pen Script", cursive; }
-    .note-left {
-      position: absolute; left: 29px; top: 57px;
-      z-index: 3;
-      color: #0646b8; font-size: 17px; line-height: 1; transform: rotate(-8deg);
+
+    .hotspot:focus-visible {
+      outline: 3px solid #0646b8;
+      outline-offset: 2px;
     }
-    .note-left::after {
-      content: ""; position: absolute; left: -10px; right: -8px; bottom: -4px;
-      height: 3px; background: #eb001b; transform: rotate(-4deg); border-radius: 999px;
-    }
-    .stars { position: absolute; left: 125px; top: 34px; z-index: 4; color: #eb001b; font-size: 27px; line-height: 1; transform: rotate(15deg); }
-    .hero-visual {
-      position: absolute; right: 0; top: 68px; z-index: 1;
-      width: 175px; height: 206px; object-fit: cover; object-position: center;
-    }
-    .hero-mask {
-      position: absolute; left: 216px; top: 249px; z-index: 7;
-      width: 82px; height: 23px; background: #fff;
-    }
-    .headline {
-      position: absolute; left: 20px; top: 94px; z-index: 3;
-      width: 254px; letter-spacing: -2.7px;
-    }
-    .headline .school { display: block; font-size: 25px; font-weight: 1000; line-height: 1.05; color: #05070d; }
-    .headline .main-blue { display: block; margin-top: 7px; font-size: 32px; font-weight: 1000; line-height: .98; color: #0646b8; }
-    .headline .main-red { position: relative; display: block; margin-top: 5px; font-size: 33px; font-weight: 1000; line-height: 1; color: #eb001b; }
-    .headline .main-red::after {
-      content: ""; position: absolute; left: -1px; right: -3px; bottom: -7px;
-      height: 3px; background: #eb001b; border-radius: 999px; transform: rotate(-1.2deg);
-    }
-    .red-arrow {
-      position: absolute; left: 222px; top: 176px; z-index: 4; width: 44px; height: 50px; color: #eb001b;
-    }
-    .subcopy {
-      position: absolute; left: 22px; top: 219px; z-index: 3;
-      font-size: 14px; font-weight: 850; line-height: 1.55; letter-spacing: -.7px;
-    }
-    .cta-row {
-      position: absolute; left: 20px; top: 286px; z-index: 8;
-      display: grid; grid-template-columns: 121px 121px 121px; gap: 8px;
-    }
-    .cta {
-      height: 67px; border-radius: 7px; display: grid; grid-template-columns: 38px 1fr; align-items: center;
-      padding: 8px 8px 8px 9px; box-shadow: 0 7px 14px rgba(0,0,0,.22);
-      font-weight: 900; letter-spacing: -.7px;
-    }
-    .cta svg { width: 33px; height: 38px; }
-    .cta b { display: block; font-size: 14px; line-height: 1.05; }
-    .cta small { display: block; margin-top: 4px; font-size: 10px; line-height: 1.25; font-weight: 800; }
-    .cta.red-bg { background: #ed001b; color: #fff; }
-    .cta.blue-bg { background: #0646b8; color: #fff; }
-    .cta.yellow-bg { background: #ffd415; color: #05070d; grid-template-columns: 34px 1fr; }
-    .talk { display: flex; align-items: center; justify-content: center; width: 31px; height: 31px; border-radius: 999px; background: #17110a; color: #ffd415; font-size: 10px; font-weight: 1000; }
-    .section-title {
-      position: absolute; left: 20px; display: flex; align-items: baseline; gap: 8px; letter-spacing: -.7px;
-      z-index: 6;
-    }
-    .section-title .num { color: #0646b8; font-size: 23px; line-height: 1; font-weight: 1000; }
-    .section-title .txt { color: #05070d; font-size: 14px; font-weight: 950; }
-    .cards {
-      position: absolute; left: 20px; top: 418px; width: 380px;
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
-    }
-    .school-card {
-      height: 160px; padding: 12px 8px 10px; border: 1px solid #e1e4eb; border-radius: 7px;
-      background: rgba(255,255,255,.96); box-shadow: 0 6px 18px rgba(0,45,120,.08); text-align: center;
-    }
-    .round-icon {
-      width: 42px; height: 42px; margin: 0 auto; border-radius: 999px; color: #fff;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .round-icon svg { width: 26px; height: 26px; }
-    .school-card h3 { margin: 7px 0 4px; font-size: 16px; line-height: 1; font-weight: 1000; letter-spacing: -.7px; }
-    .school-card p { margin: 0; min-height: 29px; font-size: 10px; line-height: 1.32; font-weight: 800; letter-spacing: -.45px; }
-    .school-card ul { margin: 8px 0 0; padding: 0; list-style: none; text-align: left; }
-    .school-card li { display: flex; gap: 4px; align-items: flex-start; margin-top: 5px; font-size: 9px; line-height: 1.22; font-weight: 750; letter-spacing: -.45px; }
-    .dot {
-      flex: 0 0 auto; width: 11px; height: 11px; border-radius: 999px; color: #fff;
-      display: inline-flex; align-items: center; justify-content: center; font-size: 8px; font-weight: 1000;
-    }
-    .features {
-      position: absolute; left: 20px; top: 638px; width: 380px; height: 108px;
-      display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid #e1e4eb; border-radius: 7px;
-      overflow: hidden; background: rgba(255,255,255,.96); box-shadow: 0 6px 18px rgba(0,45,120,.08);
-    }
-    .feature {
-      text-align: center; padding: 13px 6px 0; border-left: 1px solid #e1e4eb;
-    }
-    .feature:first-child { border-left: 0; }
-    .feature svg { width: 32px; height: 32px; color: #0646b8; }
-    .feature h3 { margin: 5px 0 3px; color: #0646b8; font-size: 12px; line-height: 1; font-weight: 1000; letter-spacing: -.5px; }
-    .feature p { margin: 0; font-size: 9.6px; line-height: 1.35; font-weight: 750; letter-spacing: -.45px; }
-    .process {
-      position: absolute; left: 20px; top: 805px; width: 380px; height: 100px;
-      display: grid; grid-template-columns: 1fr 16px 1fr 16px 1fr 16px 1fr; align-items: center;
-      border: 1px solid rgba(6,70,184,.18); border-radius: 7px; background: rgba(255,255,255,.96);
-      box-shadow: 0 6px 18px rgba(0,45,120,.08); padding: 10px 8px;
-    }
-    .step { text-align: center; }
-    .step svg { width: 30px; height: 30px; color: #0646b8; }
-    .step h3 { margin: 1px 0 1px; color: #0646b8; font-size: 10.8px; line-height: 1; font-weight: 1000; letter-spacing: -.45px; }
-    .step p { margin: 0; font-size: 8.8px; line-height: 1.25; font-weight: 750; letter-spacing: -.45px; }
-    .chev { color: #0646b8; text-align: center; font-size: 24px; font-weight: 1000; }
-    .area {
-      position: absolute; left: 20px; top: 930px; width: 380px;
-      display: grid; grid-template-columns: 76px 36px 1fr; gap: 8px; align-items: center;
-    }
-    .area .num { color: #0646b8; font-size: 23px; font-weight: 1000; line-height: 1; }
-    .area .caption { margin-top: 4px; font-size: 13px; line-height: 1.08; font-weight: 900; letter-spacing: -.7px; }
-    .pin { width: 34px; height: 47px; color: #0646b8; }
-    .area h2 { margin: 0; font-size: 15.5px; line-height: 1.1; font-weight: 1000; letter-spacing: -.75px; }
-    .area p { margin: 5px 0 0; font-size: 9.6px; line-height: 1.2; font-weight: 750; letter-spacing: -.35px; }
-    .bottom-row {
-      position: absolute; left: 13px; top: 985px; display: grid; grid-template-columns: 126px 126px 126px; gap: 5px; z-index: 10;
-    }
-    .bottom-row .cta {
-      height: 55px; border-radius: 6px; grid-template-columns: 36px 1fr; padding: 7px 6px 7px 8px; box-shadow: none;
-    }
-    .bottom-row .cta b { font-size: 13px; }
-    .bottom-row .cta small { font-size: 9px; }
-    .bottom-row .cta svg { width: 30px; height: 34px; }
-    .bottom-row .talk { width: 30px; height: 30px; }
+
     .sr-only {
-      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-      overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
-    }
-    @media (max-width: 419px) {
-      .page {
-        transform-origin: top center;
-      }
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
   </style>
 </head>
 <body>
   <main class="page" aria-label="둔산 전략과외 랜딩페이지">
-    <div class="logo"><span class="blue">둔산</span> 전략과외</div>
-    <a href="#contact" class="menu" aria-label="상담 영역으로 이동"><span></span><span></span><span></span></a>
+    <img class="design" src="./b-reference-hd.png" alt="둔산 전략과외. 탄방중, 충남고, 문정초 성적 향상을 위한 전략형 1:1 과외. 무료 진단 상담, 상담 신청, 카카오톡 문의." />
 
-    <p class="pen note-left">우리 학교에 딱 맞는!</p>
-    <p class="pen stars">☆☆</p>
-    <img class="hero-visual" src="./b-hero-visual.png" alt="" aria-hidden="true" />
-    <span class="hero-mask" aria-hidden="true"></span>
-
-    <h1 class="headline">
-      <span class="school">탄방중 · 충남고 · 문정초</span>
-      <span class="main-blue">성적 향상을 위한</span>
-      <span class="main-red">전략형 1:1 과외</span>
-    </h1>
-    <svg class="red-arrow" viewBox="0 0 54 62" fill="none" aria-hidden="true">
-      <path d="M3 55c18-11 31-25 44-48M37 9l10-6 2 12" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <p class="subcopy">학교별 시험 범위와 학년별<br />학습 흐름을 반영한 <span class="blue">맞춤 수업</span></p>
-
-    <section class="cta-row" aria-label="빠른 상담 메뉴">
-      <a class="cta red-bg" href="./sinchung.html?from=b">
-        <svg viewBox="0 0 44 48" fill="none" aria-hidden="true"><path d="M13 6h18l4 5v29H9V11l4-5Z" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M17 5h10M16 18h13M16 26h9" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="31" cy="36" r="8" fill="#ed001b" stroke="currentColor" stroke-width="3"/><path d="m27 36 3 3 6-7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span><b>무료 진단 상담</b><small>학습 상태를<br />무료로 진단!</small></span>
-      </a>
-      <a class="cta blue-bg" href="./sinchung.html?from=b">
-        <svg viewBox="0 0 44 48" fill="none" aria-hidden="true"><path d="M10 12h24v28H10V12Z" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M16 6v10M28 6v10M16 23h9" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="31" cy="35" r="8" fill="#0646b8" stroke="currentColor" stroke-width="3"/><path d="m27 35 3 3 6-7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span><b>상담 신청</b><small>간편하게<br />상담 신청하기</small></span>
-      </a>
-      <a class="cta yellow-bg" href="./sinchung.html?from=b">
-        <span class="talk">TALK</span><span><b>카카오톡 문의</b><small>빠르게 1:1<br />문의하기</small></span>
-      </a>
+    <section class="sr-only">
+      <h1>탄방중 · 충남고 · 문정초 성적 향상을 위한 전략형 1:1 과외</h1>
+      <p>학교별 시험 범위와 학년별 학습 흐름을 반영한 맞춤 수업입니다.</p>
+      <h2>우리 과외는 이런 학생에게</h2>
+      <p>탄방중 내신 완성, 충남고 내신과 수능 대비, 문정초 기초 탄탄과 습관 형성을 돕습니다.</p>
+      <h2>전략적인 1:1 맞춤 수업</h2>
+      <p>내신 맞춤, 수행평가, 수능 기초, 학습 습관을 전략적으로 관리합니다.</p>
+      <h2>수업 진행 과정</h2>
+      <p>상담 신청, 학습 진단, 맞춤 전략 수립, 수업 시작 순서로 진행됩니다.</p>
+      <h2>상담 가능 지역</h2>
+      <p>대전 둔산동, 탄방동 및 인근 지역 상담이 가능합니다.</p>
     </section>
 
-    <h2 class="section-title" style="top:380px;"><span class="num">01</span><span class="txt">우리 과외는 이런 학생에게</span></h2>
-    <section class="cards" aria-label="대상 학생">
-      <article class="school-card"><div class="round-icon" style="background:#0646b8;"><svg viewBox="0 0 32 32" fill="none"><path d="M7 27V13l9-6 9 6v14H7Z" stroke="currentColor" stroke-width="2.2"/><path d="M12 27v-7h8v7M12 15h.1M16 15h.1M20 15h.1" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></div><h3 class="blue">탄방중</h3><p>내신 완성 & 상위권 도약</p><ul><li><span class="dot" style="background:#0646b8;">✓</span>학교 시험 출제 경향 분석</li><li><span class="dot" style="background:#0646b8;">✓</span>과목별 맞춤 내신 대비</li><li><span class="dot" style="background:#0646b8;">✓</span>서술형·고난도 문제 집중</li></ul></article>
-      <article class="school-card"><div class="round-icon" style="background:#e60017;"><svg viewBox="0 0 32 32" fill="none"><path d="M16 4 26 8v8c0 6.5-4 10.2-10 12-6-1.8-10-5.5-10-12V8l10-4Z" stroke="currentColor" stroke-width="2.2"/><path d="M11 11h4M17 11h4M11 17h4M17 17h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><h3 class="red">충남고</h3><p>내신 1등급 & 수능 대비</p><ul><li><span class="dot" style="background:#e60017;">✓</span>내신 + 수능 연계 학습</li><li><span class="dot" style="background:#e60017;">✓</span>심화 개념 & 문제 풀이</li><li><span class="dot" style="background:#e60017;">✓</span>수능형 사고력 강화</li></ul></article>
-      <article class="school-card"><div class="round-icon" style="background:#128b22;"><svg viewBox="0 0 32 32" fill="none"><path d="M16 27V14M16 14c-4-6-10-2-8 3 1 3 4 4 8 2M16 14c4-6 10-2 8 3-1 3-4 4-8 2" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 27h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></div><h3 class="green">문정초</h3><p>기초 탄탄 & 습관 형성</p><ul><li><span class="dot" style="background:#128b22;">✓</span>교과 개념 탄탄히 다지기</li><li><span class="dot" style="background:#128b22;">✓</span>독해·사고력·문해력 향상</li><li><span class="dot" style="background:#128b22;">✓</span>공부 습관 & 자기주도 학습</li></ul></article>
-    </section>
+    <a class="hotspot" href="./sinchung.html?from=b" aria-label="무료 진단 상담 신청"
+      style="left: 5.10%; top: 30.84%; width: 28.97%; height: 7.46%;">무료 진단 상담</a>
+    <a class="hotspot" href="./sinchung.html?from=b" aria-label="상담 신청"
+      style="left: 36.15%; top: 30.84%; width: 28.27%; height: 7.46%;">상담 신청</a>
+    <a class="hotspot" href="./sinchung.html?from=b" aria-label="카카오톡 문의"
+      style="left: 66.16%; top: 30.84%; width: 28.74%; height: 7.46%;">카카오톡 문의</a>
 
-    <h2 class="section-title" style="top:598px;"><span class="num">02</span><span class="txt">전략적인 1:1 맞춤 수업</span></h2>
-    <section class="features" aria-label="수업 특징">
-      <article class="feature"><svg viewBox="0 0 32 32" fill="none"><path d="M5 8c4 0 7 1 10 3v16c-3-2-6-3-10-3V8ZM27 8c-4 0-7 1-10 3v16c3-2 6-3 10-3V8Z" stroke="currentColor" stroke-width="2.2"/></svg><h3>내신 맞춤</h3><p>학교별 시험<br />완벽 대비</p></article>
-      <article class="feature"><svg viewBox="0 0 32 32" fill="none"><path d="M9 5h10l5 5v17H9V5Z" stroke="currentColor" stroke-width="2.2"/><path d="M19 5v6h5M12 20h8M15 14l-3 8M17 14l3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><h3>수행평가</h3><p>과제·발표·보고서<br />성공 전략</p></article>
-      <article class="feature"><svg viewBox="0 0 32 32" fill="none"><path d="m4 13 12-6 12 6-12 6-12-6Z" stroke="currentColor" stroke-width="2.2"/><path d="M9 16v6c5 3 9 3 14 0v-6" stroke="currentColor" stroke-width="2.2"/></svg><h3>수능 기초</h3><p>개념 이해부터<br />문제 적용까지</p></article>
-      <article class="feature"><svg viewBox="0 0 32 32" fill="none"><path d="m7 24 3-8L23 3l6 6-13 13-9 2Z" stroke="currentColor" stroke-width="2.2"/><path d="M20 6l6 6M6 28h20" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg><h3>학습 습관</h3><p>스스로 공부하는 힘<br />올바른 습관 형성</p></article>
-    </section>
-
-    <h2 class="section-title" style="top:765px;"><span class="num">03</span><span class="txt">수업 진행 과정</span></h2>
-    <section class="process" aria-label="수업 진행 과정">
-      <article class="step"><svg viewBox="0 0 32 32" fill="none"><path d="M7 23c-3-2-5-5-5-9 0-6 6-10 14-10s14 4 14 10-6 10-14 10c-2 0-4-.2-6-.9L5 26l2-3Z" stroke="currentColor" stroke-width="2"/><path d="M11 14h.1M16 14h.1M21 14h.1" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><h3>상담 신청</h3><p>전화/문자/카톡으로<br />간편하게 신청</p></article><span class="chev">›</span>
-      <article class="step"><svg viewBox="0 0 32 32" fill="none"><path d="M10 5h12l4 5v17H6V5h4Z" stroke="currentColor" stroke-width="2"/><path d="M12 15h8M12 20h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="23" cy="23" r="5" fill="#fff" stroke="currentColor" stroke-width="2"/><path d="m21 23 2 2 4-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><h3>학습 진단</h3><p>학습 수준·목표·학교<br />분석 및 진단</p></article><span class="chev">›</span>
-      <article class="step"><svg viewBox="0 0 32 32" fill="none"><circle cx="14" cy="17" r="11" stroke="currentColor" stroke-width="2"/><circle cx="14" cy="17" r="5" stroke="currentColor" stroke-width="2"/><path d="M14 17 27 4M23 4l5-1-1 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><h3>맞춤 전략 수립</h3><p>학생에게 꼭 맞는<br />수업 계획 수립</p></article><span class="chev">›</span>
-      <article class="step"><svg viewBox="0 0 32 32" fill="none"><path d="M5 8c4 0 7 1 10 3v16c-3-2-6-3-10-3V8ZM27 8c-4 0-7 1-10 3v16c3-2 6-3 10-3V8Z" stroke="currentColor" stroke-width="2.2"/></svg><h3>수업 시작</h3><p>전략적인 1:1 수업으로<br />성적 향상 시작!</p></article>
-    </section>
-
-    <section id="contact" class="area" aria-label="상담 가능 지역">
-      <div><div class="num">04</div><div class="caption">상담 가능 지역</div></div>
-      <svg class="pin" viewBox="0 0 32 44" fill="currentColor" aria-hidden="true"><path d="M16 0C7.2 0 0 7.2 0 16c0 12 16 28 16 28s16-16 16-28C32 7.2 24.8 0 16 0Zm0 22.5A6.5 6.5 0 1 1 16 9a6.5 6.5 0 0 1 0 13.5Z"/></svg>
-      <div><h2>대전 둔산동 · 탄방동 및 인근 지역</h2><p>둔산동 ㅣ 탄방동 ㅣ 괴정동 ㅣ 월평동 ㅣ 갈마동 ㅣ 용문동</p></div>
-    </section>
-
-    <nav class="bottom-row" aria-label="하단 빠른 상담 메뉴">
-      <a class="cta red-bg" href="./sinchung.html?from=b"><svg viewBox="0 0 44 48" fill="none" aria-hidden="true"><path d="M13 6h18l4 5v29H9V11l4-5Z" stroke="currentColor" stroke-width="3"/><path d="M17 5h10M16 18h13M16 26h9" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="31" cy="36" r="8" fill="#ed001b" stroke="currentColor" stroke-width="3"/><path d="m27 36 3 3 6-7" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><span><b>무료 진단 상담</b><small>학습 상태 무료 진단!</small></span></a>
-      <a class="cta blue-bg" href="./sinchung.html?from=b"><svg viewBox="0 0 44 48" fill="none" aria-hidden="true"><path d="M10 12h24v28H10V12Z" stroke="currentColor" stroke-width="3"/><path d="M16 6v10M28 6v10M16 23h9" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="31" cy="35" r="8" fill="#0646b8" stroke="currentColor" stroke-width="3"/><path d="m27 35 3 3 6-7" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><span><b>상담 신청</b><small>간편하게 신청하기</small></span></a>
-      <a class="cta yellow-bg" href="./sinchung.html?from=b"><span class="talk">TALK</span><span><b>카카오톡 문의</b><small>1:1 빠른 상담</small></span></a>
-    </nav>
+    <a class="hotspot" href="./sinchung.html?from=b" aria-label="하단 무료 진단 상담 신청"
+      style="left: 3.82%; top: 93.75%; width: 31.29%; height: 6.25%;">무료 진단 상담</a>
+    <a class="hotspot" href="./sinchung.html?from=b" aria-label="하단 상담 신청"
+      style="left: 36.85%; top: 93.75%; width: 29.78%; height: 6.25%;">상담 신청</a>
+    <a class="hotspot" href="./sinchung.html?from=b" aria-label="하단 카카오톡 문의"
+      style="left: 68.13%; top: 93.75%; width: 28.27%; height: 6.25%;">카카오톡 문의</a>
   </main>
 </body>
 </html>

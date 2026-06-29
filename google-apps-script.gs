@@ -1,8 +1,7 @@
 var SHEET_ID = '1QRf2_lzRankZ19PLWVlcAYWdhThAYzqJBM1lXFmPoiI';
-var SHEET_NAME = '상담신청';
 
 function doPost(e) {
-  var sheet = getOrCreateSheet_();
+  var sheet = getTargetSheet_();
   var params = e.parameter || {};
   var parentPhone = formatPhoneNumber_(params.parentPhone || '');
   var grade = resolveGrade_(params.grade, params.gradeChoice, params.gradeOther);
@@ -51,9 +50,10 @@ function doGet() {
   return ContentService.createTextOutput('Dunsan landing page form endpoint is running.').setMimeType(ContentService.MimeType.TEXT);
 }
 
-function getOrCreateSheet_() {
+function getTargetSheet_() {
   var spreadsheet = SpreadsheetApp.openById(SHEET_ID);
-  return spreadsheet.getSheetByName(SHEET_NAME) || spreadsheet.insertSheet(SHEET_NAME);
+  var sheets = spreadsheet.getSheets();
+  return sheets.shift();
 }
 
 function ensureHeader_(sheet) {

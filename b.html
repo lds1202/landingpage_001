@@ -23,7 +23,7 @@
     .page {
       position: relative;
       width: min(100%, 420px);
-      min-height: 886px;
+      min-height: 1040px;
       overflow: hidden;
       background:
         radial-gradient(circle at 18% 0%, rgba(0, 67, 180, .06), transparent 26%),
@@ -59,19 +59,13 @@
       height: 3px; background: #eb001b; transform: rotate(-4deg); border-radius: 999px;
     }
     .stars { position: absolute; left: 125px; top: 34px; z-index: 4; color: #eb001b; font-size: 27px; line-height: 1; transform: rotate(15deg); }
-    .target {
-      position: absolute; left: 247px; top: 38px; z-index: 4; width: 47px; height: 47px; color: #0646b8;
-    }
-    .note-right {
-      position: absolute; right: 18px; top: 59px; z-index: 5;
-      width: 83px; color: #0646b8; font-size: 17px; line-height: .98; text-align: center; transform: rotate(-9deg);
-    }
-    .note-arrow {
-      position: absolute; right: 36px; top: 103px; z-index: 5; width: 31px; height: 25px; color: #0646b8;
-    }
     .hero-visual {
       position: absolute; right: 0; top: 68px; z-index: 1;
       width: 175px; height: 206px; object-fit: cover; object-position: center;
+    }
+    .hero-mask {
+      position: absolute; left: 216px; top: 249px; z-index: 7;
+      width: 82px; height: 23px; background: #fff;
     }
     .headline {
       position: absolute; left: 20px; top: 94px; z-index: 3;
@@ -92,7 +86,7 @@
       font-size: 14px; font-weight: 850; line-height: 1.55; letter-spacing: -.7px;
     }
     .cta-row {
-      position: absolute; left: 20px; top: 272px; z-index: 8;
+      position: absolute; left: 20px; top: 286px; z-index: 8;
       display: grid; grid-template-columns: 121px 121px 121px; gap: 8px;
     }
     .cta {
@@ -114,11 +108,11 @@
     .section-title .num { color: #0646b8; font-size: 23px; line-height: 1; font-weight: 1000; }
     .section-title .txt { color: #05070d; font-size: 14px; font-weight: 950; }
     .cards {
-      position: absolute; left: 20px; top: 398px; width: 380px;
+      position: absolute; left: 20px; top: 418px; width: 380px;
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
     }
     .school-card {
-      height: 143px; padding: 10px 7px 8px; border: 1px solid #e1e4eb; border-radius: 7px;
+      height: 160px; padding: 12px 8px 10px; border: 1px solid #e1e4eb; border-radius: 7px;
       background: rgba(255,255,255,.96); box-shadow: 0 6px 18px rgba(0,45,120,.08); text-align: center;
     }
     .round-icon {
@@ -126,31 +120,31 @@
       display: flex; align-items: center; justify-content: center;
     }
     .round-icon svg { width: 26px; height: 26px; }
-    .school-card h3 { margin: 6px 0 3px; font-size: 15px; line-height: 1; font-weight: 1000; letter-spacing: -.7px; }
-    .school-card p { margin: 0; min-height: 27px; font-size: 9.5px; line-height: 1.28; font-weight: 800; letter-spacing: -.45px; }
-    .school-card ul { margin: 6px 0 0; padding: 0; list-style: none; text-align: left; }
-    .school-card li { display: flex; gap: 4px; align-items: flex-start; margin-top: 4px; font-size: 8.6px; line-height: 1.15; font-weight: 750; letter-spacing: -.45px; }
+    .school-card h3 { margin: 7px 0 4px; font-size: 16px; line-height: 1; font-weight: 1000; letter-spacing: -.7px; }
+    .school-card p { margin: 0; min-height: 29px; font-size: 10px; line-height: 1.32; font-weight: 800; letter-spacing: -.45px; }
+    .school-card ul { margin: 8px 0 0; padding: 0; list-style: none; text-align: left; }
+    .school-card li { display: flex; gap: 4px; align-items: flex-start; margin-top: 5px; font-size: 9px; line-height: 1.22; font-weight: 750; letter-spacing: -.45px; }
     .dot {
       flex: 0 0 auto; width: 11px; height: 11px; border-radius: 999px; color: #fff;
       display: inline-flex; align-items: center; justify-content: center; font-size: 8px; font-weight: 1000;
     }
     .features {
-      position: absolute; left: 20px; top: 586px; width: 380px; height: 91px;
+      position: absolute; left: 20px; top: 638px; width: 380px; height: 108px;
       display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid #e1e4eb; border-radius: 7px;
       overflow: hidden; background: rgba(255,255,255,.96); box-shadow: 0 6px 18px rgba(0,45,120,.08);
     }
     .feature {
-      text-align: center; padding: 11px 6px 0; border-left: 1px solid #e1e4eb;
+      text-align: center; padding: 13px 6px 0; border-left: 1px solid #e1e4eb;
     }
     .feature:first-child { border-left: 0; }
     .feature svg { width: 32px; height: 32px; color: #0646b8; }
-    .feature h3 { margin: 3px 0 2px; color: #0646b8; font-size: 11.5px; line-height: 1; font-weight: 1000; letter-spacing: -.5px; }
-    .feature p { margin: 0; font-size: 9.3px; line-height: 1.28; font-weight: 750; letter-spacing: -.45px; }
+    .feature h3 { margin: 5px 0 3px; color: #0646b8; font-size: 12px; line-height: 1; font-weight: 1000; letter-spacing: -.5px; }
+    .feature p { margin: 0; font-size: 9.6px; line-height: 1.35; font-weight: 750; letter-spacing: -.45px; }
     .process {
-      position: absolute; left: 20px; top: 704px; width: 380px; height: 76px;
+      position: absolute; left: 20px; top: 805px; width: 380px; height: 100px;
       display: grid; grid-template-columns: 1fr 16px 1fr 16px 1fr 16px 1fr; align-items: center;
       border: 1px solid rgba(6,70,184,.18); border-radius: 7px; background: rgba(255,255,255,.96);
-      box-shadow: 0 6px 18px rgba(0,45,120,.08); padding: 6px 8px;
+      box-shadow: 0 6px 18px rgba(0,45,120,.08); padding: 10px 8px;
     }
     .step { text-align: center; }
     .step svg { width: 30px; height: 30px; color: #0646b8; }
@@ -158,7 +152,7 @@
     .step p { margin: 0; font-size: 8.8px; line-height: 1.25; font-weight: 750; letter-spacing: -.45px; }
     .chev { color: #0646b8; text-align: center; font-size: 24px; font-weight: 1000; }
     .area {
-      position: absolute; left: 20px; top: 783px; width: 380px;
+      position: absolute; left: 20px; top: 930px; width: 380px;
       display: grid; grid-template-columns: 76px 36px 1fr; gap: 8px; align-items: center;
     }
     .area .num { color: #0646b8; font-size: 23px; font-weight: 1000; line-height: 1; }
@@ -167,7 +161,7 @@
     .area h2 { margin: 0; font-size: 15.5px; line-height: 1.1; font-weight: 1000; letter-spacing: -.75px; }
     .area p { margin: 5px 0 0; font-size: 9.6px; line-height: 1.2; font-weight: 750; letter-spacing: -.35px; }
     .bottom-row {
-      position: absolute; left: 13px; top: 831px; display: grid; grid-template-columns: 126px 126px 126px; gap: 5px; z-index: 10;
+      position: absolute; left: 13px; top: 985px; display: grid; grid-template-columns: 126px 126px 126px; gap: 5px; z-index: 10;
     }
     .bottom-row .cta {
       height: 55px; border-radius: 6px; grid-template-columns: 36px 1fr; padding: 7px 6px 7px 8px; box-shadow: none;
@@ -194,16 +188,8 @@
 
     <p class="pen note-left">우리 학교에 딱 맞는!</p>
     <p class="pen stars">☆☆</p>
-    <svg class="target" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-      <circle cx="28" cy="34" r="22" stroke="currentColor" stroke-width="3"/>
-      <circle cx="28" cy="34" r="12" stroke="currentColor" stroke-width="3"/>
-      <path d="M28 34 55 8M45 9l10-3-3 10M51 12l8 2" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <p class="pen note-right">전략이 다르면<br />성적이 다르다!</p>
-    <svg class="note-arrow" viewBox="0 0 40 34" fill="none" aria-hidden="true">
-      <path d="M5 4c9 11 19 15 29 18M28 14l7 8-10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
     <img class="hero-visual" src="./b-hero-visual.png" alt="" aria-hidden="true" />
+    <span class="hero-mask" aria-hidden="true"></span>
 
     <h1 class="headline">
       <span class="school">탄방중 · 충남고 · 문정초</span>
@@ -229,14 +215,14 @@
       </a>
     </section>
 
-    <h2 class="section-title" style="top:360px;"><span class="num">01</span><span class="txt">우리 과외는 이런 학생에게</span></h2>
+    <h2 class="section-title" style="top:380px;"><span class="num">01</span><span class="txt">우리 과외는 이런 학생에게</span></h2>
     <section class="cards" aria-label="대상 학생">
       <article class="school-card"><div class="round-icon" style="background:#0646b8;"><svg viewBox="0 0 32 32" fill="none"><path d="M7 27V13l9-6 9 6v14H7Z" stroke="currentColor" stroke-width="2.2"/><path d="M12 27v-7h8v7M12 15h.1M16 15h.1M20 15h.1" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></div><h3 class="blue">탄방중</h3><p>내신 완성 & 상위권 도약</p><ul><li><span class="dot" style="background:#0646b8;">✓</span>학교 시험 출제 경향 분석</li><li><span class="dot" style="background:#0646b8;">✓</span>과목별 맞춤 내신 대비</li><li><span class="dot" style="background:#0646b8;">✓</span>서술형·고난도 문제 집중</li></ul></article>
       <article class="school-card"><div class="round-icon" style="background:#e60017;"><svg viewBox="0 0 32 32" fill="none"><path d="M16 4 26 8v8c0 6.5-4 10.2-10 12-6-1.8-10-5.5-10-12V8l10-4Z" stroke="currentColor" stroke-width="2.2"/><path d="M11 11h4M17 11h4M11 17h4M17 17h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><h3 class="red">충남고</h3><p>내신 1등급 & 수능 대비</p><ul><li><span class="dot" style="background:#e60017;">✓</span>내신 + 수능 연계 학습</li><li><span class="dot" style="background:#e60017;">✓</span>심화 개념 & 문제 풀이</li><li><span class="dot" style="background:#e60017;">✓</span>수능형 사고력 강화</li></ul></article>
       <article class="school-card"><div class="round-icon" style="background:#128b22;"><svg viewBox="0 0 32 32" fill="none"><path d="M16 27V14M16 14c-4-6-10-2-8 3 1 3 4 4 8 2M16 14c4-6 10-2 8 3-1 3-4 4-8 2" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 27h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></div><h3 class="green">문정초</h3><p>기초 탄탄 & 습관 형성</p><ul><li><span class="dot" style="background:#128b22;">✓</span>교과 개념 탄탄히 다지기</li><li><span class="dot" style="background:#128b22;">✓</span>독해·사고력·문해력 향상</li><li><span class="dot" style="background:#128b22;">✓</span>공부 습관 & 자기주도 학습</li></ul></article>
     </section>
 
-    <h2 class="section-title" style="top:544px;"><span class="num">02</span><span class="txt">전략적인 1:1 맞춤 수업</span></h2>
+    <h2 class="section-title" style="top:598px;"><span class="num">02</span><span class="txt">전략적인 1:1 맞춤 수업</span></h2>
     <section class="features" aria-label="수업 특징">
       <article class="feature"><svg viewBox="0 0 32 32" fill="none"><path d="M5 8c4 0 7 1 10 3v16c-3-2-6-3-10-3V8ZM27 8c-4 0-7 1-10 3v16c3-2 6-3 10-3V8Z" stroke="currentColor" stroke-width="2.2"/></svg><h3>내신 맞춤</h3><p>학교별 시험<br />완벽 대비</p></article>
       <article class="feature"><svg viewBox="0 0 32 32" fill="none"><path d="M9 5h10l5 5v17H9V5Z" stroke="currentColor" stroke-width="2.2"/><path d="M19 5v6h5M12 20h8M15 14l-3 8M17 14l3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><h3>수행평가</h3><p>과제·발표·보고서<br />성공 전략</p></article>
@@ -244,7 +230,7 @@
       <article class="feature"><svg viewBox="0 0 32 32" fill="none"><path d="m7 24 3-8L23 3l6 6-13 13-9 2Z" stroke="currentColor" stroke-width="2.2"/><path d="M20 6l6 6M6 28h20" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg><h3>학습 습관</h3><p>스스로 공부하는 힘<br />올바른 습관 형성</p></article>
     </section>
 
-    <h2 class="section-title" style="top:668px;"><span class="num">03</span><span class="txt">수업 진행 과정</span></h2>
+    <h2 class="section-title" style="top:765px;"><span class="num">03</span><span class="txt">수업 진행 과정</span></h2>
     <section class="process" aria-label="수업 진행 과정">
       <article class="step"><svg viewBox="0 0 32 32" fill="none"><path d="M7 23c-3-2-5-5-5-9 0-6 6-10 14-10s14 4 14 10-6 10-14 10c-2 0-4-.2-6-.9L5 26l2-3Z" stroke="currentColor" stroke-width="2"/><path d="M11 14h.1M16 14h.1M21 14h.1" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><h3>상담 신청</h3><p>전화/문자/카톡으로<br />간편하게 신청</p></article><span class="chev">›</span>
       <article class="step"><svg viewBox="0 0 32 32" fill="none"><path d="M10 5h12l4 5v17H6V5h4Z" stroke="currentColor" stroke-width="2"/><path d="M12 15h8M12 20h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="23" cy="23" r="5" fill="#fff" stroke="currentColor" stroke-width="2"/><path d="m21 23 2 2 4-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><h3>학습 진단</h3><p>학습 수준·목표·학교<br />분석 및 진단</p></article><span class="chev">›</span>

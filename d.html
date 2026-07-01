@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>둔산 맞춤과외 선생님 찾기</title>
+  <meta name="description" content="대전 둔산동, 탄방동, 월평동 학생을 위한 1:1 맞춤 수학 과외 선생님과 수업 유형을 비교해보세요." />
+  <style>
+    :root {
+      --ink: #142033;
+      --sub: #64748b;
+      --muted: #eef4ff;
+      --line: #e2e8f0;
+      --card: #ffffff;
+      --bg: #f6f9ff;
+      --navy: #1e3a8a;
+      --blue: #2563eb;
+      --soft-blue: #dbeafe;
+      --gold: #f59e0b;
+      --green: #16a34a;
+      --danger: #ef4444;
+      --shadow: 0 14px 36px rgba(15, 23, 42, 0.09);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Pretendard, "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+      letter-spacing: 0;
+      padding-bottom: 86px;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wrap {
+      width: min(100%, 1120px);
+      margin: 0 auto;
+      padding: 0 18px;
+    }
+
+    .topline {
+      background: #fff7ed;
+      color: #9a3412;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 800;
+      padding: 8px 12px;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      background: rgba(255, 255, 255, 0.94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+
+    .header .wrap {
+      height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 21px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      color: #fff;
+      box-shadow: 0 8px 18px rgba(37, 99, 235, 0.22);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: #334155;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .counter {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      line-height: 1.1;
+      color: var(--sub);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .counter b {
+      margin-top: 3px;
+      color: var(--navy);
+      font-size: 16px;
+      letter-spacing: 0;
+    }
+
+    .menu {
+      display: none;
+      width: 38px;
+      height: 38px;
+      border: 0;
+      border-radius: 10px;
+      background: #f8fafc;
+      color: var(--ink);
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .hero {
+      background:
+        radial-gradient(circle at 80% 10%, rgba(37, 99, 235, 0.13), transparent 34%),
+        linear-gradient(160deg, #eff6ff 0%, #ffffff 58%, #f8fbff 100%);
+      padding: 38px 0 32px;
+      text-align: center;
+      border-bottom: 1px solid #eaf1fb;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #fff;
+      color: var(--blue);
+      border: 1px solid var(--soft-blue);
+      font-size: 13px;
+      font-weight: 900;
+      box-shadow: 0 6px 18px rgba(37, 99, 235, 0.08);
+    }
+
+    .hero h1 {
+      margin: 18px auto 10px;
+      max-width: 760px;
+      font-size: clamp(32px, 7.2vw, 56px);
+      line-height: 1.08;
+      font-weight: 950;
+      word-break: keep-all;
+    }
+
+    .hero h1 b {
+      color: var(--blue);
+    }
+
+    .hero p {
+      margin: 0 auto;
+      max-width: 660px;
+      color: #475569;
+      font-size: clamp(16px, 3.5vw, 20px);
+      line-height: 1.65;
+      font-weight: 650;
+      word-break: keep-all;
+    }
+
+    .searchbox {
+      position: relative;
+      max-width: 660px;
+      margin: 24px auto 0;
+    }
+
+    .searchbox span {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--blue);
+      font-size: 18px;
+    }
+
+    .searchbox input {
+      width: 100%;
+      min-height: 54px;
+      padding: 0 18px 0 50px;
+      border: 2px solid #bfdbfe;
+      border-radius: 999px;
+      background: #fff;
+      color: var(--ink);
+      font-size: 16px;
+      font-weight: 650;
+      outline: none;
+      box-shadow: 0 12px 28px rgba(37, 99, 235, 0.08);
+      transition: border-color 0.18s, box-shadow 0.18s;
+    }
+
+    .searchbox input:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 5px rgba(37, 99, 235, 0.12);
+    }
+
+    .quick {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .quick a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      padding: 0 15px;
+      border-radius: 999px;
+      background: #fff;
+      color: var(--navy);
+      border: 1px solid #dbeafe;
+      font-size: 13px;
+      font-weight: 900;
+      box-shadow: 0 6px 14px rgba(15, 23, 42, 0.05);
+    }
+
+    .filters {
+      position: sticky;
+      top: 66px;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+
+    .filter-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 12px 0;
+      scrollbar-width: none;
+    }
+
+    .filter-row::-webkit-scrollbar {
+      display: none;
+    }
+
+    .chip {
+      flex: 0 0 auto;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: #334155;
+      min-height: 34px;
+      padding: 0 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 850;
+      cursor: pointer;
+      transition: 0.16s ease;
+      white-space: nowrap;
+    }
+
+    .chip.on {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+      box-shadow: 0 8px 18px rgba(37, 99, 235, 0.2);
+    }
+
+    .main {
+      padding: 22px 0 70px;
+    }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .count {
+      font-size: 18px;
+      font-weight: 950;
+    }
+
+    .count b {
+      color: var(--blue);
+    }
+
+    .notice {
+      max-width: 520px;
+      padding: 8px 13px;
+      border-radius: 999px;
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      color: #9a3412;
+      font-size: 12px;
+      font-weight: 750;
+      line-height: 1.45;
+      word-break: keep-all;
+    }
+
+    .strip {
+      display: none;
+      margin-bottom: 18px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
+      overflow: hidden;
+    }
+
+    .strip.show {
+      display: block;
+    }
+
+    .strip-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 13px 16px;
+      font-weight: 950;
+      cursor: pointer;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .strip-list {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding: 14px;
+    }
+
+    .mini {
+      flex: 0 0 190px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px;
+      background: #fbfdff;
+      cursor: pointer;
+    }
+
+    .mini strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--navy);
+      font-size: 14px;
+    }
+
+    .mini span {
+      color: var(--sub);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.04);
+      cursor: pointer;
+      transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #bfdbfe;
+      box-shadow: var(--shadow);
+    }
+
+    .photo {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 70% 20%, rgba(255, 255, 255, 0.72), transparent 30%),
+        linear-gradient(135deg, #dbeafe, #eff6ff 48%, #fff7ed);
+    }
+
+    .avatar {
+      width: 58%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #fff;
+      color: var(--blue);
+      font-size: clamp(34px, 7vw, 56px);
+      font-weight: 950;
+      box-shadow: inset 0 0 0 12px rgba(37, 99, 235, 0.08), 0 18px 34px rgba(37, 99, 235, 0.12);
+    }
+
+    .badge {
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      color: #fff;
+      background: rgba(30, 58, 138, 0.92);
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .badge.green {
+      background: rgba(22, 163, 74, 0.9);
+    }
+
+    .heart {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 2;
+      width: 36px;
+      height: 36px;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.94);
+      color: #cbd5e1;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
+      cursor: pointer;
+      font-size: 17px;
+    }
+
+    .heart.on {
+      color: var(--danger);
+    }
+
+    .card-body {
+      padding: 15px 14px 16px;
+    }
+
+    .name-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 7px;
+    }
+
+    .name-row h3 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 950;
+    }
+
+    .name-row span {
+      flex: 0 0 auto;
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .desc {
+      min-height: 44px;
+      margin: 0;
+      color: #475569;
+      font-size: 13.5px;
+      line-height: 1.6;
+      font-weight: 700;
+      word-break: keep-all;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 11px;
+    }
+
+    .tag {
+      padding: 5px 8px;
+      border-radius: 999px;
+      background: #eff6ff;
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 850;
+    }
+
+    .level {
+      margin-top: 11px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      background: #fff7ed;
+      color: #9a3412;
+      border: 1px solid #fed7aa;
+      font-size: 12px;
+      font-weight: 850;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .empty {
+      display: none;
+      padding: 44px 18px;
+      text-align: center;
+      border: 1px dashed #bfdbfe;
+      border-radius: 18px;
+      background: #fff;
+      color: var(--sub);
+      font-weight: 850;
+    }
+
+    .more {
+      display: none;
+      margin: 26px auto 0;
+      min-height: 48px;
+      padding: 0 42px;
+      border-radius: 999px;
+      border: 2px solid var(--blue);
+      background: #fff;
+      color: var(--blue);
+      font-size: 15px;
+      font-weight: 950;
+      cursor: pointer;
+    }
+
+    .more:hover {
+      background: var(--blue);
+      color: #fff;
+    }
+
+    .floating {
+      position: fixed;
+      left: 50%;
+      bottom: 0;
+      z-index: 80;
+      width: min(100%, 760px);
+      transform: translateX(-50%);
+      padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid rgba(226, 232, 240, 0.94);
+      border-bottom: 0;
+      border-radius: 18px 18px 0 0;
+      box-shadow: 0 -12px 32px rgba(15, 23, 42, 0.12);
+      backdrop-filter: blur(14px);
+    }
+
+    .floating-inner {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 9px;
+    }
+
+    .float-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 52px;
+      border-radius: 13px;
+      font-size: 15px;
+      font-weight: 950;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
+    }
+
+    .float-btn.primary {
+      background: #1a2744;
+      color: #fff;
+    }
+
+    .float-btn.kakao {
+      background: #fee500;
+      color: #3c1e1e;
+    }
+
+    .float-btn.phone {
+      background: #4a90e2;
+      color: #fff;
+    }
+
+    .modal-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      align-items: flex-start;
+      justify-content: center;
+      overflow-y: auto;
+      padding: 28px 14px;
+      background: rgba(15, 23, 42, 0.58);
+    }
+
+    .modal-bg.show {
+      display: flex;
+    }
+
+    .modal {
+      position: relative;
+      width: min(100%, 760px);
+      overflow: hidden;
+      border-radius: 22px;
+      background: #fff;
+      animation: modalUp 0.22s ease;
+    }
+
+    @keyframes modalUp {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .close {
+      position: absolute;
+      right: 16px;
+      top: 16px;
+      z-index: 2;
+      width: 36px;
+      height: 36px;
+      border: 0;
+      border-radius: 50%;
+      background: #f1f5f9;
+      color: var(--sub);
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    .modal-head {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 22px;
+      padding: 28px;
+      background: linear-gradient(135deg, #eff6ff, #fff);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .modal-photo {
+      aspect-ratio: 1;
+      border-radius: 20px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #dbeafe, #fff7ed);
+      color: var(--blue);
+      font-size: 58px;
+      font-weight: 950;
+      box-shadow: inset 0 0 0 12px rgba(255, 255, 255, 0.7);
+    }
+
+    .modal-copy h2 {
+      margin: 6px 0 8px;
+      font-size: 30px;
+      line-height: 1.2;
+      font-weight: 950;
+    }
+
+    .modal-copy p {
+      margin: 0;
+      color: #475569;
+      font-size: 15px;
+      line-height: 1.7;
+      font-weight: 700;
+      word-break: keep-all;
+    }
+
+    .modal-tags {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .modal-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      padding: 24px 28px 8px;
+    }
+
+    .info-box h3 {
+      margin: 0 0 10px;
+      font-size: 16px;
+      font-weight: 950;
+    }
+
+    .info-box ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      color: #475569;
+      font-size: 14px;
+      line-height: 1.85;
+      font-weight: 700;
+    }
+
+    .info-box li {
+      position: relative;
+      padding-left: 14px;
+    }
+
+    .info-box li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 12px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #94a3b8;
+    }
+
+    .modal-cta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      padding: 20px 28px 26px;
+      border-top: 1px solid var(--line);
+      background: #fcfdff;
+    }
+
+    .modal-cta a {
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      font-weight: 950;
+      text-align: center;
+    }
+
+    .modal-cta a:first-child {
+      background: #1a2744;
+      color: #fff;
+    }
+
+    .modal-cta a:last-child {
+      background: #fff;
+      color: var(--blue);
+      border: 2px solid var(--blue);
+    }
+
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .nav {
+        display: none;
+      }
+
+      .menu {
+        display: block;
+      }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding-bottom: 158px;
+      }
+
+      .topline {
+        font-size: 12px;
+      }
+
+      .header .wrap {
+        height: 60px;
+      }
+
+      .brand {
+        font-size: 18px;
+      }
+
+      .brand-mark {
+        width: 33px;
+        height: 33px;
+      }
+
+      .counter {
+        display: none;
+      }
+
+      .hero {
+        padding: 30px 0 26px;
+      }
+
+      .hero h1 {
+        margin-top: 15px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .searchbox input {
+        min-height: 50px;
+        font-size: 14px;
+      }
+
+      .filters {
+        top: 60px;
+      }
+
+      .toolbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .notice {
+        border-radius: 14px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .card {
+        display: grid;
+        grid-template-columns: 38% 1fr;
+        border-radius: 16px;
+      }
+
+      .photo {
+        aspect-ratio: auto;
+        min-height: 178px;
+      }
+
+      .card-body {
+        padding: 14px 13px;
+      }
+
+      .desc {
+        min-height: auto;
+        font-size: 13px;
+      }
+
+      .floating {
+        width: 100%;
+        border-radius: 16px 16px 0 0;
+      }
+
+      .floating-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .float-btn {
+        min-height: 43px;
+        font-size: 14px;
+      }
+
+      .modal-head {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 24px 20px;
+      }
+
+      .modal-photo {
+        width: 140px;
+        margin: 0 auto;
+      }
+
+      .modal-copy {
+        text-align: center;
+      }
+
+      .modal-copy h2 {
+        font-size: 25px;
+      }
+
+      .modal-tags {
+        justify-content: center;
+      }
+
+      .modal-body {
+        grid-template-columns: 1fr;
+        padding: 20px;
+      }
+
+      .modal-cta {
+        grid-template-columns: 1fr;
+        padding: 18px 20px 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="topline">대전 둔산동·탄방동·월평동 방문/화상 1:1 맞춤 수업 상담 가능</div>
+
+  <header class="header">
+    <div class="wrap">
+      <a class="brand" href="#top" aria-label="둔산 맞춤과외 홈">
+        <span class="brand-mark" aria-hidden="true">수</span>
+        <span>둔산 맞춤과외</span>
+      </a>
+      <nav class="nav" aria-label="주요 메뉴">
+        <a href="#teachers">선생님 비교</a>
+        <a href="#filters">학년/목표</a>
+        <a href="./sinchung.html?from=d">무료 상담</a>
+      </nav>
+      <div class="counter" aria-label="누적 상담 신청">
+        <span>누적 상담</span>
+        <b>1,248명</b>
+      </div>
+      <button class="menu" type="button" aria-label="메뉴">☰</button>
+    </div>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div class="eyebrow">✓ 검증된 1:1 수학 맞춤 관리</div>
+      <h1>우리 아이에게 딱 맞는 <b>수업 찾기</b></h1>
+      <p>학교, 학년, 목표를 기준으로 둔산권 학생에게 맞는 수학 과외 유형을 비교해보세요.</p>
+      <div class="searchbox">
+        <span aria-hidden="true">⌕</span>
+        <input id="q" type="search" placeholder="학교, 학년, 목표로 검색 (예: 탄방중, 충남고, 내신)" autocomplete="off" />
+      </div>
+      <div class="quick" aria-label="빠른 상담 링크">
+        <a href="./sinchung.html?from=d">무료 학습 진단</a>
+        <a href="./sinchung.html?from=d">방문 수업 상담</a>
+        <a href="./sinchung.html?from=d">화상 수업 상담</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="filters" id="filters" aria-label="수업 필터">
+    <div class="wrap">
+      <div class="filter-row">
+        <button class="chip on" type="button" data-filter="all">전체</button>
+        <button class="chip" type="button" data-filter="middle">중등 내신</button>
+        <button class="chip" type="button" data-filter="high">고등 수능</button>
+        <button class="chip" type="button" data-filter="basic">기초 보완</button>
+        <button class="chip" type="button" data-filter="exam">시험 대비</button>
+        <button class="chip" type="button" data-filter="habit">학습 습관</button>
+        <button class="chip" type="button" data-filter="online">화상 가능</button>
+      </div>
+    </div>
+  </section>
+
+  <main class="main" id="teachers">
+    <div class="wrap">
+      <section class="strip" id="strip">
+        <div class="strip-head" id="stripToggle">
+          <span>❤️ 찜한 수업 <b id="favCount"></b></span>
+          <span>▼</span>
+        </div>
+        <div class="strip-list" id="favList"></div>
+      </section>
+
+      <div class="toolbar">
+        <div class="count">총 <b id="count">0</b>개 수업 유형</div>
+        <div class="notice">원하는 선생님 일정이 어려운 경우, 조건이 비슷한 수업으로 다시 제안해드립니다.</div>
+      </div>
+
+      <section class="grid" id="cardGrid" aria-label="수업 유형 목록"></section>
+      <div class="empty" id="empty">조건에 맞는 수업이 없습니다. 검색어나 필터를 조정해보세요.</div>
+      <button class="more" type="button" id="more">수업 더 보기</button>
+    </div>
+  </main>
+
+  <nav class="floating" aria-label="고정 상담 버튼">
+    <div class="floating-inner">
+      <a class="float-btn primary" href="./sinchung.html?from=d">📝 무료 진단 신청</a>
+      <a class="float-btn kakao" href="./sinchung.html?from=d">💬 카카오톡 상담</a>
+      <a class="float-btn phone" href="./sinchung.html?from=d">☎ 전화 상담</a>
+    </div>
+  </nav>
+
+  <div class="modal-bg" id="modalBg" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <article class="modal">
+      <button class="close" type="button" id="closeModal" aria-label="닫기">×</button>
+      <div class="modal-head">
+        <div class="modal-photo" id="modalInitial" aria-hidden="true">수</div>
+        <div class="modal-copy">
+          <div class="eyebrow" id="modalBadge">1:1 맞춤</div>
+          <h2 id="modalTitle">수업 제목</h2>
+          <p id="modalDesc">수업 설명</p>
+          <div class="modal-tags" id="modalTags"></div>
+        </div>
+      </div>
+      <div class="modal-body">
+        <section class="info-box">
+          <h3>추천 학생</h3>
+          <ul id="modalRecommend"></ul>
+        </section>
+        <section class="info-box">
+          <h3>관리 방식</h3>
+          <ul id="modalPlan"></ul>
+        </section>
+      </div>
+      <div class="modal-cta">
+        <a href="./sinchung.html?from=d">이 수업으로 상담 신청</a>
+        <a href="./sinchung.html?from=d">비슷한 수업 추천받기</a>
+      </div>
+    </article>
+  </div>
+
+  <script>
+    const lessons = [
+      {
+        id: "tanbang-mid",
+        name: "탄방중 내신 집중반",
+        initial: "중",
+        badge: "중등 내신",
+        type: "middle exam",
+        rating: "4.9",
+        desc: "학교 시험 범위와 수행평가 흐름에 맞춰 단원별 약점을 빠르게 정리합니다.",
+        tags: ["탄방중", "내신", "수행평가"],
+        level: "추천: 중1-중3 / 시험 4주 전 집중 관리",
+        recommend: ["시험 범위가 넓어질 때 정리가 어려운 학생", "서술형 감점이 반복되는 학생", "상위권 진입을 목표로 하는 학생"],
+        plan: ["학교별 시험 범위 체크", "개념-유형-서술형 순서 훈련", "오답 누적표로 재실수 관리"]
+      },
+      {
+        id: "chungnam-high",
+        name: "충남고 수능·내신 병행반",
+        initial: "고",
+        badge: "고등 수학",
+        type: "high exam",
+        rating: "4.9",
+        desc: "내신 진도와 수능형 사고력을 함께 잡는 고등학생 맞춤 커리큘럼입니다.",
+        tags: ["충남고", "수능", "내신"],
+        level: "추천: 고1-고3 / 수학 상·하, 미적분, 확통",
+        recommend: ["내신과 모의고사 차이가 큰 학생", "개념은 알지만 문제 적용이 약한 학생", "등급 상승 목표가 명확한 학생"],
+        plan: ["학교 진도 기반 주간 계획", "수능형 문항 사고 과정 훈련", "모의고사 오답 유형별 재학습"]
+      },
+      {
+        id: "munjeong-basic",
+        name: "문정초 기초 탄탄반",
+        initial: "초",
+        badge: "초등 기초",
+        type: "basic habit",
+        rating: "4.8",
+        desc: "연산, 개념, 문제 읽기 습관을 함께 잡아 중등 수학으로 자연스럽게 연결합니다.",
+        tags: ["문정초", "기초", "습관"],
+        level: "추천: 초3-초6 / 중등 선행 전 기초 점검",
+        recommend: ["계산 실수가 잦은 학생", "문장제 문제를 어려워하는 학생", "공부 루틴이 아직 잡히지 않은 학생"],
+        plan: ["연산 정확도 체크", "개념 설명 후 짧은 확인 문제", "숙제량과 학습 시간 습관화"]
+      },
+      {
+        id: "dunsan-one",
+        name: "둔산동 1:1 방문반",
+        initial: "방",
+        badge: "방문 가능",
+        type: "middle high exam",
+        rating: "5.0",
+        desc: "집중력이 필요한 학생을 위해 방문 수업과 주간 피드백을 밀착 제공하는 수업입니다.",
+        tags: ["둔산동", "방문", "피드백"],
+        level: "추천: 중고등 / 방문 수업 선호 학생",
+        recommend: ["집에서 안정적으로 수업받고 싶은 학생", "학부모 피드백을 자주 원하는 가정", "정해진 루틴이 필요한 학생"],
+        plan: ["주 1-3회 방문 수업", "수업 후 핵심 피드백 공유", "다음 수업 전 과제 점검"]
+      },
+      {
+        id: "online-care",
+        name: "화상 관리반",
+        initial: "온",
+        badge: "화상 가능",
+        type: "online habit high middle",
+        rating: "4.8",
+        desc: "이동 시간을 줄이고 화면 공유와 풀이 첨삭으로 꾸준히 관리하는 온라인 수업입니다.",
+        tags: ["화상", "첨삭", "시간 절약"],
+        level: "추천: 초5-고3 / 방문 일정이 어려운 학생",
+        recommend: ["이동 시간이 부담되는 학생", "짧고 자주 관리받고 싶은 학생", "풀이 과정 첨삭이 필요한 학생"],
+        plan: ["화면 공유 풀이 수업", "온라인 과제 제출", "주간 학습 리포트 제공"]
+      },
+      {
+        id: "habit-coach",
+        name: "학습 습관 코칭반",
+        initial: "습",
+        badge: "습관 관리",
+        type: "habit basic",
+        rating: "4.7",
+        desc: "수학 공부량이 들쑥날쑥한 학생에게 현실적인 계획과 체크 루틴을 만들어줍니다.",
+        tags: ["습관", "계획", "자기주도"],
+        level: "추천: 초등 고학년-중등 / 자기주도 전환기",
+        recommend: ["숙제를 미루는 습관이 있는 학생", "공부 시간을 스스로 조절하기 어려운 학생", "부모님과 공부 갈등이 잦은 학생"],
+        plan: ["주간 계획표 작성", "작은 단위 목표 설정", "완료율 기반 피드백"]
+      },
+      {
+        id: "exam-sprint",
+        name: "시험 직전 스프린트",
+        initial: "시",
+        badge: "단기 대비",
+        type: "exam middle high",
+        rating: "4.9",
+        desc: "남은 기간에 맞춰 꼭 맞아야 할 문제와 자주 틀리는 유형을 압축 정리합니다.",
+        tags: ["시험대비", "오답", "단기"],
+        level: "추천: 시험 2-3주 전 / 빠른 약점 보완",
+        recommend: ["시험이 얼마 남지 않은 학생", "어디부터 해야 할지 모르는 학생", "마지막 점검이 필요한 학생"],
+        plan: ["출제 범위 우선순위 정리", "빈출 유형 압축 풀이", "시험 전날 체크리스트 제공"]
+      },
+      {
+        id: "advanced",
+        name: "상위권 심화반",
+        initial: "심",
+        badge: "심화",
+        type: "high middle exam",
+        rating: "5.0",
+        desc: "개념 완성 이후 고난도 문항과 서술형 사고력을 깊게 다지는 수업입니다.",
+        tags: ["심화", "상위권", "서술형"],
+        level: "추천: 1-2등급 목표 / 고난도 문항 대비",
+        recommend: ["기본 문제는 빠르게 푸는 학생", "고난도 문항에서 시간이 오래 걸리는 학생", "서술형 만점을 노리는 학생"],
+        plan: ["고난도 문항 풀이 루틴", "풀이 과정 언어화 훈련", "실전 시간 배분 연습"]
+      }
+    ];
+
+    const grid = document.getElementById("cardGrid");
+    const countEl = document.getElementById("count");
+    const emptyEl = document.getElementById("empty");
+    const moreBtn = document.getElementById("more");
+    const searchEl = document.getElementById("q");
+    const chips = [...document.querySelectorAll(".chip")];
+    const modalBg = document.getElementById("modalBg");
+    const closeModal = document.getElementById("closeModal");
+    const favList = document.getElementById("favList");
+    const strip = document.getElementById("strip");
+    const favCount = document.getElementById("favCount");
+
+    let activeFilter = "all";
+    let visibleLimit = 6;
+    let favoriteIds = JSON.parse(localStorage.getItem("dunsanFavorites") || "[]");
+
+    function saveFavorites() {
+      localStorage.setItem("dunsanFavorites", JSON.stringify(favoriteIds));
+    }
+
+    function getMatches() {
+      const query = searchEl.value.trim().toLowerCase();
+      return lessons.filter((lesson) => {
+        const byFilter = activeFilter === "all" || lesson.type.includes(activeFilter);
+        const haystack = [lesson.name, lesson.badge, lesson.desc, lesson.tags.join(" "), lesson.level].join(" ").toLowerCase();
+        const bySearch = !query || haystack.includes(query);
+        return byFilter && bySearch;
+      });
+    }
+
+    function lessonCard(lesson) {
+      const isFav = favoriteIds.includes(lesson.id);
+      return `
+        <article class="card" data-id="${lesson.id}" tabindex="0" aria-label="${lesson.name} 자세히 보기">
+          <button class="heart ${isFav ? "on" : ""}" type="button" aria-label="${lesson.name} 찜하기" data-fav="${lesson.id}">♥</button>
+          <div class="photo">
+            <div class="avatar" aria-hidden="true">${lesson.initial}</div>
+            <span class="badge ${lesson.type.includes("online") ? "green" : ""}">${lesson.badge}</span>
+          </div>
+          <div class="card-body">
+            <div class="name-row">
+              <h3>${lesson.name}</h3>
+              <span>★ ${lesson.rating}</span>
+            </div>
+            <p class="desc">${lesson.desc}</p>
+            <div class="tags">${lesson.tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}</div>
+            <div class="level">${lesson.level}</div>
+          </div>
+        </article>
+      `;
+    }
+
+    function render() {
+      const matches = getMatches();
+      const visible = matches.slice(0, visibleLimit);
+      grid.innerHTML = visible.map(lessonCard).join("");
+      countEl.textContent = matches.length;
+      emptyEl.style.display = matches.length ? "none" : "block";
+      moreBtn.style.display = matches.length > visibleLimit ? "block" : "none";
+      renderFavorites();
+    }
+
+    function renderFavorites() {
+      const favorites = lessons.filter((lesson) => favoriteIds.includes(lesson.id));
+      strip.classList.toggle("show", favorites.length > 0);
+      favCount.textContent = favorites.length ? `(${favorites.length})` : "";
+      favList.innerHTML = favorites.map((lesson) => `
+        <button class="mini" type="button" data-mini="${lesson.id}">
+          <strong>${lesson.name}</strong>
+          <span>${lesson.tags.join(" · ")}</span>
+        </button>
+      `).join("");
+    }
+
+    function openModal(id) {
+      const lesson = lessons.find((item) => item.id === id);
+      if (!lesson) return;
+      document.getElementById("modalInitial").textContent = lesson.initial;
+      document.getElementById("modalBadge").textContent = lesson.badge;
+      document.getElementById("modalTitle").textContent = lesson.name;
+      document.getElementById("modalDesc").textContent = lesson.desc;
+      document.getElementById("modalTags").innerHTML = lesson.tags.map((tag) => `<span class="tag">${tag}</span>`).join("");
+      document.getElementById("modalRecommend").innerHTML = lesson.recommend.map((item) => `<li>${item}</li>`).join("");
+      document.getElementById("modalPlan").innerHTML = lesson.plan.map((item) => `<li>${item}</li>`).join("");
+      modalBg.classList.add("show");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModalFn() {
+      modalBg.classList.remove("show");
+      document.body.style.overflow = "";
+    }
+
+    grid.addEventListener("click", (event) => {
+      const favBtn = event.target.closest("[data-fav]");
+      if (favBtn) {
+        event.stopPropagation();
+        const id = favBtn.dataset.fav;
+        favoriteIds = favoriteIds.includes(id)
+          ? favoriteIds.filter((favId) => favId !== id)
+          : [...favoriteIds, id];
+        saveFavorites();
+        render();
+        return;
+      }
+
+      const card = event.target.closest(".card");
+      if (card) openModal(card.dataset.id);
+    });
+
+    grid.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter") return;
+      const card = event.target.closest(".card");
+      if (card) openModal(card.dataset.id);
+    });
+
+    favList.addEventListener("click", (event) => {
+      const mini = event.target.closest("[data-mini]");
+      if (mini) openModal(mini.dataset.mini);
+    });
+
+    chips.forEach((chip) => {
+      chip.addEventListener("click", () => {
+        chips.forEach((item) => item.classList.remove("on"));
+        chip.classList.add("on");
+        activeFilter = chip.dataset.filter;
+        visibleLimit = 6;
+        render();
+      });
+    });
+
+    searchEl.addEventListener("input", () => {
+      visibleLimit = 6;
+      render();
+    });
+
+    moreBtn.addEventListener("click", () => {
+      visibleLimit += 6;
+      render();
+    });
+
+    closeModal.addEventListener("click", closeModalFn);
+    modalBg.addEventListener("click", (event) => {
+      if (event.target === modalBg) closeModalFn();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeModalFn();
+    });
+
+    render();
+  </script>
+</body>
+</html>

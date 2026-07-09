@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3PL 물류대행 상담 신청 | 바인그룹 물류센터</title>
+  <meta name="description" content="바인그룹 물류센터 3PL 물류대행 상담 신청. 자사몰, 스마트스토어, 쿠팡 판매자를 위한 입고, 재고관리, 출고, 배송 대행 상담." />
+  <style>
+    :root {
+      --ink: #16142d;
+      --sub: #626878;
+      --line: #e6e8f0;
+      --bg: #f4f6fb;
+      --purple: #5b3aa2;
+      --purple-dark: #2b235f;
+      --green: #61ad3c;
+      --orange: #f97316;
+      --red: #dc2626;
+      --shadow: 0 18px 44px rgba(22, 20, 45, 0.13);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+      letter-spacing: 0;
+      word-break: keep-all;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    .page {
+      width: min(100%, 760px);
+      margin: 0 auto;
+      min-height: 100svh;
+      background: #fff;
+      box-shadow: 0 0 0 1px rgba(230, 232, 240, 0.7);
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      min-height: 68px;
+      padding: 12px 20px;
+      background: rgba(255, 255, 255, 0.94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+
+    .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--purple-dark);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .header img {
+      width: 136px;
+      height: auto;
+      display: block;
+    }
+
+    .hero {
+      padding: 32px 22px 24px;
+      background:
+        radial-gradient(circle at 85% 0%, rgba(91, 58, 162, 0.2), transparent 32%),
+        linear-gradient(135deg, #ffffff, #f3efff 58%, #eff5ff);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 0 13px;
+      border-radius: 999px;
+      background: #f1ecff;
+      color: var(--purple);
+      font-size: 13px;
+      font-weight: 950;
+    }
+
+    h1 {
+      margin: 16px 0 10px;
+      font-size: clamp(32px, 8vw, 48px);
+      line-height: 1.13;
+      font-weight: 950;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      margin: 0;
+      color: #4f5567;
+      font-size: 16px;
+      line-height: 1.72;
+      font-weight: 750;
+    }
+
+    .call-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 18px;
+      padding: 15px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(230, 232, 240, 0.88);
+      box-shadow: 0 10px 24px rgba(22, 20, 45, 0.07);
+    }
+
+    .call-box b {
+      display: block;
+      font-size: 14px;
+      color: var(--purple-dark);
+    }
+
+    .call-box span {
+      display: block;
+      margin-top: 4px;
+      color: var(--sub);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .call-box a {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 14px;
+      border-radius: 12px;
+      background: #eef9ea;
+      color: #246a18;
+      border: 1px solid #d7efce;
+      font-weight: 950;
+      font-size: 14px;
+    }
+
+    main {
+      padding: 18px 18px 34px;
+    }
+
+    form {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: #fff;
+      box-shadow: var(--shadow);
+      padding: 20px;
+    }
+
+    .section {
+      padding: 20px 0;
+      border-top: 1px solid #f0f1f6;
+    }
+
+    .section:first-of-type {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 20px;
+      line-height: 1.35;
+      font-weight: 950;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .field {
+      display: block;
+    }
+
+    .field span,
+    .label {
+      display: block;
+      margin-bottom: 7px;
+      color: #242236;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .req {
+      color: var(--orange);
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    select,
+    textarea {
+      width: 100%;
+      border: 1.5px solid var(--line);
+      border-radius: 13px;
+      background: #fff;
+      color: var(--ink);
+      outline: none;
+      font-size: 15px;
+      font-weight: 650;
+      transition: border-color 0.16s, box-shadow 0.16s;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    select {
+      min-height: 48px;
+      padding: 0 14px;
+    }
+
+    textarea {
+      min-height: 122px;
+      resize: vertical;
+      padding: 13px 14px;
+      line-height: 1.62;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--purple);
+      box-shadow: 0 0 0 4px rgba(91, 58, 162, 0.12);
+    }
+
+    .options {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .options.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .option input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .option span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 8px 10px;
+      border: 1.5px solid var(--line);
+      border-radius: 13px;
+      background: #fff;
+      color: #555b6b;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 850;
+      line-height: 1.35;
+      cursor: pointer;
+      transition: 0.16s;
+    }
+
+    .option input:checked + span {
+      border-color: var(--purple);
+      background: #f1ecff;
+      color: var(--purple-dark);
+      box-shadow: 0 8px 18px rgba(91, 58, 162, 0.12);
+    }
+
+    .hint {
+      margin: 8px 0 0;
+      color: var(--sub);
+      font-size: 12px;
+      line-height: 1.5;
+      font-weight: 700;
+    }
+
+    .agree {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 14px;
+      border-radius: 15px;
+      background: #f7f8fc;
+      color: #4f5567;
+      font-size: 13px;
+      line-height: 1.55;
+      font-weight: 750;
+    }
+
+    .agree input {
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      accent-color: var(--purple);
+    }
+
+    .submit {
+      width: 100%;
+      min-height: 56px;
+      border: 0;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--purple-dark), var(--purple));
+      color: #fff;
+      font-size: 17px;
+      font-weight: 950;
+      cursor: pointer;
+      box-shadow: 0 18px 32px rgba(91, 58, 162, 0.26);
+    }
+
+    .submit:disabled {
+      cursor: not-allowed;
+      opacity: 0.68;
+    }
+
+    .message {
+      display: none;
+      margin-top: 14px;
+      padding: 14px;
+      border-radius: 14px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 900;
+      line-height: 1.55;
+    }
+
+    .message.success {
+      display: block;
+      background: #ecfdf3;
+      color: #166534;
+    }
+
+    .message.error {
+      display: block;
+      background: #fef2f2;
+      color: #b91c1c;
+    }
+
+    .foot-note {
+      margin: 18px 4px 0;
+      color: var(--sub);
+      font-size: 12px;
+      line-height: 1.6;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    @media (min-width: 840px) {
+      .page {
+        margin: 28px auto;
+        border-radius: 28px;
+        overflow: hidden;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .header {
+        min-height: 60px;
+        padding: 10px 16px;
+      }
+
+      .header img {
+        width: 116px;
+      }
+
+      .back span {
+        display: none;
+      }
+
+      .hero {
+        padding: 28px 18px 22px;
+      }
+
+      main {
+        padding: 14px 12px 28px;
+      }
+
+      form {
+        padding: 16px;
+        border-radius: 20px;
+      }
+
+      .grid,
+      .options,
+      .options.three {
+        grid-template-columns: 1fr;
+      }
+
+      .call-box {
+        align-items: stretch;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <a class="back" href="./3PL1.html" aria-label="랜딩페이지로 돌아가기">
+        <span aria-hidden="true">‹</span>
+        <span>돌아가기</span>
+      </a>
+      <img src="./baingroup-logo.png" alt="바인그룹" />
+      <a class="back" href="tel:01062565593" aria-label="전화 상담">전화</a>
+    </header>
+
+    <section class="hero">
+      <span class="badge">3PL 물류대행 상담 신청</span>
+      <h1>현재 물류 현황을 알려주시면<br />절감 가능성을 상담해드립니다.</h1>
+      <p>자사몰, 스마트스토어, 쿠팡 출고부터 재고관리, 대형화물 입고, 쿠팡 밀크런, 로켓그로스까지 필요한 항목을 선택해주세요.</p>
+      <div class="call-box">
+        <div>
+          <b>빠른 상담 전화</b>
+          <span>바인그룹 물류센터 · 경기도 고양시 일산동구 지영동</span>
+        </div>
+        <a href="tel:01062565593">010-6256-5593</a>
+      </div>
+    </section>
+
+    <main>
+      <form id="logisticsForm">
+        <input type="hidden" name="formType" value="3pl" />
+        <input type="hidden" name="source" value="3pl-sinchung.html" />
+        <input type="hidden" id="landingPageInput" name="landingPage" value="3PL1" />
+        <input type="hidden" id="pageUrlInput" name="pageUrl" value="" />
+        <input type="hidden" id="submittedAtInput" name="submittedAt" value="" />
+        <input type="hidden" id="salesChannelsInput" name="salesChannels" value="" />
+        <input type="hidden" name="location" value="경기도 고양시 일산동구 지영동" />
+
+        <section class="section">
+          <h2>기본 정보</h2>
+          <div class="grid">
+            <label class="field">
+              <span>업체명 <b class="req">*</b></span>
+              <input type="text" name="companyName" placeholder="예: 바인상사" autocomplete="organization" required />
+            </label>
+            <label class="field">
+              <span>담당자명 <b class="req">*</b></span>
+              <input type="text" name="managerName" placeholder="예: 홍길동" autocomplete="name" required />
+            </label>
+          </div>
+          <label class="field" style="margin-top:12px">
+            <span>연락처 <b class="req">*</b></span>
+            <input id="phoneInput" type="tel" name="phone" placeholder="010-6256-5593" inputmode="numeric" autocomplete="tel" maxlength="13" required />
+          </label>
+        </section>
+
+        <section class="section">
+          <h2>판매 채널</h2>
+          <div class="options" id="channelGroup">
+            <label class="option">
+              <input type="checkbox" name="channelChoice" value="자사몰" />
+              <span>자사몰</span>
+            </label>
+            <label class="option">
+              <input type="checkbox" name="channelChoice" value="스마트스토어" />
+              <span>스마트스토어</span>
+            </label>
+            <label class="option">
+              <input type="checkbox" name="channelChoice" value="쿠팡" />
+              <span>쿠팡</span>
+            </label>
+            <label class="option">
+              <input type="checkbox" name="channelChoice" value="기타" />
+              <span>기타</span>
+            </label>
+          </div>
+          <p class="hint">여러 채널을 운영 중이면 모두 선택해주세요.</p>
+        </section>
+
+        <section class="section">
+          <h2>상품 및 출고량</h2>
+          <label class="field">
+            <span>주요 상품군 <b class="req">*</b></span>
+            <input type="text" name="productCategory" placeholder="예: 생활용품, 뷰티, 의류, 대형상품 등" required />
+          </label>
+          <div style="margin-top:14px">
+            <span class="label">월 평균 출고량 <b class="req">*</b></span>
+            <div class="options">
+              <label class="option">
+                <input type="radio" name="monthlyShipments" value="100건 미만" required />
+                <span>100건 미만</span>
+              </label>
+              <label class="option">
+                <input type="radio" name="monthlyShipments" value="100~500건" />
+                <span>100~500건</span>
+              </label>
+              <label class="option">
+                <input type="radio" name="monthlyShipments" value="500~1,000건" />
+                <span>500~1,000건</span>
+              </label>
+              <label class="option">
+                <input type="radio" name="monthlyShipments" value="1,000건 이상" />
+                <span>1,000건 이상</span>
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>필요 서비스</h2>
+          <div class="grid">
+            <div>
+              <span class="label">보관 필요 여부</span>
+              <div class="options">
+                <label class="option"><input type="radio" name="storageNeed" value="필요" /><span>필요</span></label>
+                <label class="option"><input type="radio" name="storageNeed" value="상담 후 결정" checked /><span>상담 후 결정</span></label>
+              </div>
+            </div>
+            <div>
+              <span class="label">대형화물 여부</span>
+              <div class="options">
+                <label class="option"><input type="radio" name="largeCargo" value="있음" /><span>있음</span></label>
+                <label class="option"><input type="radio" name="largeCargo" value="없음" checked /><span>없음</span></label>
+              </div>
+            </div>
+            <div>
+              <span class="label">쿠팡 밀크런</span>
+              <div class="options">
+                <label class="option"><input type="radio" name="coupangMilkrun" value="필요" /><span>필요</span></label>
+                <label class="option"><input type="radio" name="coupangMilkrun" value="해당 없음" checked /><span>해당 없음</span></label>
+              </div>
+            </div>
+            <div>
+              <span class="label">로켓그로스</span>
+              <div class="options">
+                <label class="option"><input type="radio" name="rocketGrowth" value="필요" /><span>필요</span></label>
+                <label class="option"><input type="radio" name="rocketGrowth" value="해당 없음" checked /><span>해당 없음</span></label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>현재 물류 방식</h2>
+          <div class="options">
+            <label class="option">
+              <input type="radio" name="currentLogistics" value="직접 출고" required />
+              <span>직접 출고</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="currentLogistics" value="타 3PL 이용 중" />
+              <span>타 3PL 이용 중</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="currentLogistics" value="택배사 직접 계약" />
+              <span>택배사 직접 계약</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="currentLogistics" value="상담 후 정리 필요" />
+              <span>상담 후 정리 필요</span>
+            </label>
+          </div>
+          <label class="field" style="margin-top:14px">
+            <span>상담 희망 내용</span>
+            <textarea name="message" placeholder="현재 고민, 상품 특성, 출고 방식, 원하는 상담 내용을 자유롭게 적어주세요."></textarea>
+          </label>
+        </section>
+
+        <section class="section">
+          <label class="agree">
+            <input type="checkbox" name="privacyAgree" value="동의" required />
+            <span>상담 진행을 위해 입력한 정보를 수집·이용하는 것에 동의합니다. 입력 정보는 물류대행 상담 목적 외에는 사용하지 않습니다.</span>
+          </label>
+        </section>
+
+        <button class="submit" id="submitButton" type="submit">무료 물류대행 상담 신청하기</button>
+        <div class="message" id="formMessage" role="status" aria-live="polite"></div>
+      </form>
+
+      <p class="foot-note">전화 상담: 010-6256-5593 · 바인그룹 물류센터 · 경기도 고양시 일산동구 지영동</p>
+    </main>
+  </div>
+
+  <script>
+    var GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxgirF9tM04v91S5jhb3hPqBsamoBa1Zr1xBlDJZnnKByPHBgOw7fcqt3CjM_vCP7_T/exec';
+
+    var form = document.getElementById('logisticsForm');
+    var phoneInput = document.getElementById('phoneInput');
+    var submitButton = document.getElementById('submitButton');
+    var message = document.getElementById('formMessage');
+    var landingPageInput = document.getElementById('landingPageInput');
+    var pageUrlInput = document.getElementById('pageUrlInput');
+    var submittedAtInput = document.getElementById('submittedAtInput');
+    var salesChannelsInput = document.getElementById('salesChannelsInput');
+
+    function formatPhone(value) {
+      var numbers = String(value || '').replace(/\D/g, '').slice(0, 11);
+      if (numbers.length <= 3) return numbers;
+      if (numbers.length <= 7) return numbers.replace(/(\d{3})(\d+)/, '$1-$2');
+      return numbers.replace(/(\d{3})(\d{4})(\d+)/, '$1-$2-$3');
+    }
+
+    function showMessage(text, type) {
+      message.textContent = text;
+      message.className = 'message ' + type;
+    }
+
+    function syncMeta() {
+      var params = new URLSearchParams(window.location.search);
+      var from = params.get('from') || '3PL1';
+      landingPageInput.value = from;
+      pageUrlInput.value = window.location.href;
+      submittedAtInput.value = new Date().toISOString();
+    }
+
+    function syncChannels() {
+      var checked = Array.prototype.slice.call(document.querySelectorAll('input[name="channelChoice"]:checked'));
+      salesChannelsInput.value = checked.map(function(input) { return input.value; }).join(', ');
+      return checked.length > 0;
+    }
+
+    phoneInput.addEventListener('input', function() {
+      phoneInput.value = formatPhone(phoneInput.value);
+    });
+
+    form.addEventListener('submit', async function(event) {
+      event.preventDefault();
+
+      phoneInput.value = formatPhone(phoneInput.value);
+      syncMeta();
+
+      if (!syncChannels()) {
+        showMessage('판매 채널을 1개 이상 선택해주세요.', 'error');
+        return;
+      }
+
+      if (!form.reportValidity()) {
+        return;
+      }
+
+      submitButton.disabled = true;
+      submitButton.textContent = '접수 중입니다...';
+      showMessage('상담 신청을 접수하고 있습니다.', 'success');
+
+      var formData = new FormData(form);
+
+      try {
+        await fetch(GOOGLE_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          body: formData
+        });
+
+        showMessage('신청이 접수되었습니다. 확인 후 연락드리겠습니다.', 'success');
+        form.reset();
+        salesChannelsInput.value = '';
+        landingPageInput.value = new URLSearchParams(window.location.search).get('from') || '3PL1';
+        phoneInput.value = '';
+      } catch (error) {
+        showMessage('접수 중 오류가 발생했습니다. 전화 상담 010-6256-5593으로 문의해주세요.', 'error');
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = '무료 물류대행 상담 신청하기';
+      }
+    });
+
+    syncMeta();
+  </script>
+</body>
+</html>
